@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Life";
+  src: url("https://db.onlinewebfonts.com/t/a86819d47a174a4b2d45d05cb4db1ecb.eot");
+  src: url("https://db.onlinewebfonts.com/t/a86819d47a174a4b2d45d05cb4db1ecb.eot?#iefix")format("embedded-opentype"),
+  url("https://db.onlinewebfonts.com/t/a86819d47a174a4b2d45d05cb4db1ecb.woff2")format("woff2"),
+  url("https://db.onlinewebfonts.com/t/a86819d47a174a4b2d45d05cb4db1ecb.woff")format("woff"),
+  url("https://db.onlinewebfonts.com/t/a86819d47a174a4b2d45d05cb4db1ecb.ttf")format("truetype"),
+  url("https://db.onlinewebfonts.com/t/a86819d47a174a4b2d45d05cb4db1ecb.svg#Life")format("svg");
+}
+
+@font-face {
+  font-family: "GT Eesti Text Trial Rg";
+  src: url("https://db.onlinewebfonts.com/t/2e8d1f84e8a0e6cc0c9773b494285329.eot");
+  src: url("https://db.onlinewebfonts.com/t/2e8d1f84e8a0e6cc0c9773b494285329.eot?#iefix")format("embedded-opentype"),
+  url("https://db.onlinewebfonts.com/t/2e8d1f84e8a0e6cc0c9773b494285329.woff2")format("woff2"),
+  url("https://db.onlinewebfonts.com/t/2e8d1f84e8a0e6cc0c9773b494285329.woff")format("woff"),
+  url("https://db.onlinewebfonts.com/t/2e8d1f84e8a0e6cc0c9773b494285329.ttf")format("truetype"),
+  url("https://db.onlinewebfonts.com/t/2e8d1f84e8a0e6cc0c9773b494285329.svg#GT Eesti Text Trial Rg")format("svg");
+}
+
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -17,17 +38,57 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: white;
+  font-family: "GT Eesti Text Trial Rg";
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.hero{
+  background: url(/herobg2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.hero h1{
+  font-family: "Life";
+}
+
+/* Marquee styles */
+.marquee {
+  --gap: 1rem;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: var(--gap);
+}
+
+.marquee__content {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-around;
+  gap: var(--gap);
+  min-width: 100%;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+.marquee__content {
+  animation: scroll 20s linear infinite;
+}
+
+.noise-bg {
+  background: white url("https://i.pinimg.com/originals/5a/93/4e/5a934e84f67d2a61a118ec95b1d6cb74.gif") left top/1.8% 1.8% repeat;
 }

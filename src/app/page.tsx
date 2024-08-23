@@ -1,113 +1,221 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+      <section className="hero w-full h-[70vh] py-6 flex items-center">
+        <div className="flex justify-between w-11/12 mx-auto">
+          <div className="flex flex-col gap-5">
+            <p>University of Houston</p>
+            <h1 className="font-serif text-6xl w-7/12">National Society of Black Engineers</h1>
+            <button className="bg-amber-600 px-6 py-3 rounded-full w-max mt-3">Become a member</button>
+          </div>
+          <div><Image className="-mt-5" src="/NSBE-General-BlackShield 1.png" alt="NSBE LOGO" width={250} height={250}/></div>
         </div>
+      </section>
+
+      <div className="marquee text-4xl italic opacity-35 my-6">
+        <ul className="marquee__content">
+          <li>ENGINEERED TO WITHSTAND</li>
+          <li>•</li>
+          <li>ENGINEERED TO WITHSTAND</li>
+          <li>•</li>
+          <li>ENGINEERED TO WITHSTAND</li>
+          <li>•</li>
+          <li>ENGINEERED TO WITHSTAND</li>
+          <li>•</li>
+          <li>ENGINEERED TO WITHSTAND</li>
+          <li>•</li>
+          <li>ENGINEERED TO WITHSTAND</li>
+          <li>•</li>
+        </ul>
+
+        <ul aria-hidden="true" className="marquee__content">
+          <li>ENGINEERED TO WITHSTAND</li>
+          <li>•</li>
+          <li>ENGINEERED TO WITHSTAND</li>
+          <li>•</li>
+          <li>ENGINEERED TO WITHSTAND</li>
+          <li>•</li>
+          <li>ENGINEERED TO WITHSTAND</li>
+          <li>•</li>
+          <li>ENGINEERED TO WITHSTAND</li>
+          <li>•</li>
+          <li>ENGINEERED TO WITHSTAND</li>
+          <li>•</li>
+        </ul>
       </div>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
+      <section className="pt-60 pb-52">
+        <div className="w-11/12 mx-auto text-center flex flex-col gap-6 items-center">
+          <p className="underline mb-4">
+            The mission of the National Society of Black Engineers is:
           </p>
-        </a>
+          <blockquote className="text-3xl md:text-4xl font-serif leading-relaxed mx-auto max-w-6xl relative">
+            <span className="text-amber-600 text-[5rem] absolute -top-2 -left-5">“</span> <span className="text-amber-600 text-[5rem] absolute -bottom-5 -right-5">”</span>
+            To increase the number of culturally responsible Black engineers who excel
+            academically, succeed professionally, and positively impact the
+            community
+          </blockquote>
+          <Link href="/learn-more" className="bg-amber-600 text-white px-8 py-2 rounded-full mt-8 inline-block w-max">
+              Learn More
+          </Link>
+        </div>
+      </section>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+      <section className="py-16 pb-32">
+        <div className="w-10/12 max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-20">
+          {/* Card 1 */}
+          <div className="bg-yellow-600 text-center h-[600px]">
+            <Image
+              src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" // Replace with actual image path
+              alt="Excel Academically"
+              width={400}
+              height={500}
+              className="w-full h-4/6 object-cover"
+            />
+            <div className="p-4">
+              <h3 className="text-left mb-2 bg-black p-2 w-max">Excel Academically</h3>
+              <p className="text-left">
+                With study nights, mentorship program initiatives, and tutoring
+                opportunities!
+              </p>
+            </div>
+          </div>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
+          {/* Card 2 */}
+          <div className="bg-[#8C3C3C] text-center h-[600px]">
+            <Image
+              src="https://images.unsplash.com/photo-1630649945248-dc7d7c9ba79e?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" // Replace with actual image path
+              alt="Excel Academically"
+              width={400}
+              height={500}
+              className="w-full h-4/6 object-cover"
+            />
+            <div className="p-4">
+              <h3 className="text-left mb-2 bg-black p-2 w-max">Suceed Professionally</h3>
+              <p className="text-left">
+                With study nights, mentorship program initiatives, and tutoring
+                opportunities!
+              </p>
+            </div>
+          </div>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
+          {/* Card 3 */}
+          <div className="bg-[#698038] text-center h-[600px]">
+            <Image
+              src="https://images.unsplash.com/photo-1599059813005-11265ba4b4ce?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" // Replace with actual image path
+              alt="Excel Academically"
+              width={400}
+              height={500}
+              className="w-full h-4/6 object-cover"
+            />
+            <div className="p-4">
+              <h3 className="text-left mb-2 bg-black p-2 w-max">Positively Impact the Community</h3>
+              <p className="text-left">
+                With study nights, mentorship program initiatives, and tutoring
+                opportunities!
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <div className="text-center mt-12">
+          <Link href="/resources" className="bg-amber-600 text-white px-8 py-3 rounded-full inline-block"> View Our Resources</Link>
+        </div>
+      </section>
+
+
+      <section className="h-[90vh] flex justify-center items-center">
+        <div className="w-full sm:w-10/12 mx-auto flex justify-between gap-6">
+          <div className="w-full sm:w-7/12 flex flex-col justify-center">
+            <h1 className="text-4xl font-serif mb-6">Don't miss out on our upcoming events</h1>
+            <p>Welcome to the University of Houston Chapter of the National Society of Black Engineers. Come out and enjoy yourself at any of our events! Each event we host is eligible for points. Points are used to determine a member's participation and factor into conferences, sponsorships, and scholarships.</p>
+          </div>
+
+          <div className="text-2xl">
+            <iframe src="https://calendar.google.com/calendar/embed?height=500&wkst=1&ctz=America%2FChicago&bgcolor=%23ffffff&showTabs=0&showPrint=0&showTz=0&showTitle=0&src=dWhuc2JlLm9yZ19kc3JyOG1kYWQ2c2UxNHVrdTAwam1icjV2b0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23B39DDB" width="500" height="500"></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section className="h-[90vh] flex justify-center items-center">
+        <div className="w-full sm:w-10/12 mx-auto flex flex-col md:flex-row-reverse justify-between gap-6">
+          <div className="w-5/12 flex flex-col justify-center text-right">
+            <h1 className="text-4xl font-serif mb-6">Join our community</h1>
+            <p>UH NSBE is more than just an organization, it’s a family!
+            Come learn more about what it means to be a part of the wonderful  NSBE community, otherwise known as the NSBEfam, at the University of Houston.</p>
+            <button className="bg-amber-600 px-6 py-3 rounded-full w-max mt-6 ml-auto">Become a member</button>
+          </div>
+
+          <Image src="/gbmshot.png" alt="" width={700} height={700}/>
+        </div>
+      </section>
+
+      <section className="h-[90vh] my-8 flex flex-col justify-center items-center">
+
+          <p className="underline mb-4">
+            Contact Us
           </p>
-        </a>
-      </div>
-    </main>
+        <div className="p-8 max-w-3xl mx-auto text-[#f2ba62]">
+          <form action="https://formsubmit.co/b3ef9d60a2dff5e611619ba0bfea1fc3" method="POST" className="flex flex-col space-y-4">
+            <label htmlFor="name" className="text-sm">Name (Required)</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              className="p-3 bg-[#f2ba62] text-[#181309] rounded-md focus:outline-none focus:ring-2 focus:ring-[#f2ba62]"
+            />
+
+            <label htmlFor="email" className="text-sm">Email (Required)</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              className="p-3 bg-[#f2ba62] text-[#181309] rounded-md focus:outline-none focus:ring-2 focus:ring-[#f2ba62]"
+            />
+
+            <label htmlFor="category" className="text-sm">I am ...</label>
+            <select
+              id="category"
+              name="category"
+              required
+              className="p-3 bg-[#f2ba62] text-[#181309] rounded-md focus:outline-none focus:ring-2 focus:ring-[#f2ba62]"
+            >
+              <option value="" disabled selected>Select an option</option>
+              <option value="option1">A Student</option>
+              <option value="option2">An Alum</option>
+              <option value="option3">A Sponsper</option>
+              <option value="option4">An Company Representative</option>
+            </select>
+
+            <label htmlFor="message" className="text-sm">Message (Required)</label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              className="p-3 bg-[#f2ba62] text-[#181309] rounded-md focus:outline-none focus:ring-2 focus:ring-[#f2ba62]"
+            ></textarea>
+
+            <button
+              type="submit"
+              className="p-3 bg-[#181309] border-2 border-[#f2ba62] text-[#f2ba62] rounded-md hover:bg-[#f2ba62] hover:text-[#181309] transition-colors duration-300"
+            >
+              Send
+            </button>
+          </form>
+
+          <p className="text-center mt-6">
+            Have any questions? Feel free to reach out to us through the contact form – emailing our secretary directly, or any of our socials! <br />
+            <a href="mailto:secretary@uhnsbe.org" className="text-[#f2ba62] underline">secretary@uhnsbe.org</a>
+          </p>
+        </div>
+      </section>
+
+    </>
   );
 }
