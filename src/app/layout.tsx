@@ -16,21 +16,21 @@ export default function RootLayout({
   const navItems = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
-    { href: "/resources", label: "Resources" },
-    { href: "/partners", label: "Partners" },
+    // { href: "/resources", label: "Resources" },
     { href: "/events", label: "Events" },
     { href: "/membership", label: "Membership" },
+    { href: "/partners", label: "Partners" },
   ];
 
   return (
     <html lang="en" className="noise-bg" >
-      <body className="bg-[#120b04] bg-opacity-90">
+      <body className="bg-[#3a1d00] bg-opacity-90 mx-auto">
         <main className="flex flex-col">
           <div className="w-full">
             <nav className="flex justify-between w-11/12 mx-auto py-14 ">
-              <div className="text-3xl">UH<span className="font-[life] text-amber-500">NSBE</span></div>
+              <div className="text-3xl">UH|<span className="font-[life] text-amber-500">NSBE</span></div>
               <div className="flex gap-8 text-neutral-400">
-                {navItems.map((item) => (
+                {/* {navItems.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
@@ -42,7 +42,7 @@ export default function RootLayout({
                   >
                     {item.label}
                   </Link>
-                ))}
+                ))} */}
               </div>
             </nav>
           </div>
@@ -51,7 +51,7 @@ export default function RootLayout({
           <footer className="bg-black flex justify-center items-center p-8">
             <div className=" flex flex-col gap-3 w-11/12 items-center my-8 mb-16">
               <hr className="border-amber-500 border-t w-full mb-8" />
-              <div className="text-3xl">UH<span className="font-[life] text-amber-500">NSBE</span></div>
+              <div className="text-3xl">UH|<span className="font-[life] text-amber-500">NSBE</span></div>
               <p className="text-amber-500">National Society of Black Engineers | University of Houston Chapter</p>
             </div>
           </footer>
