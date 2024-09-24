@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 const images = [
-  {link: '/event-gallery/IMG_6619.jpg', mid: "center 45%"}, {link:  '/event-gallery/IMG_6489.jpg', mid: "center 31%"}, {link: '/event-gallery/gbmshot.png', mid: "center center"}, 
+  {link: '/ceb-shoot/7-_DSC2786.jpg', mid: "center 51%"}, {link: '/event-gallery/IMG_6619.jpg', mid: "center 45%"}, {link:  '/event-gallery/IMG_6489.jpg', mid: "center 31%"}, {link: '/event-gallery/gbmshot.png', mid: "center center"}, 
 ];
 
 export default function Slideshow() {
@@ -19,7 +19,7 @@ export default function Slideshow() {
 
   return (
     <div className="" style={{width: '100%', height: '100%', position: 'absolute'}}>
-      <div className="h-full w-full absolute bg-black  opacity-45 z-[2]"></div>
+      <div className="h-full w-full absolute bg-black  opacity-35 z-[2]"></div>
       {images.map((src, index) => (
         <Image
           key={src.link}
@@ -34,7 +34,5 @@ export default function Slideshow() {
         />
       ))}
     </div>
-
-    
   );
 }

@@ -2,25 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "Life";
-  src: url("https://db.onlinewebfonts.com/t/a86819d47a174a4b2d45d05cb4db1ecb.eot");
-  src: url("https://db.onlinewebfonts.com/t/a86819d47a174a4b2d45d05cb4db1ecb.eot?#iefix")format("embedded-opentype"),
-  url("https://db.onlinewebfonts.com/t/a86819d47a174a4b2d45d05cb4db1ecb.woff2")format("woff2"),
-  url("https://db.onlinewebfonts.com/t/a86819d47a174a4b2d45d05cb4db1ecb.woff")format("woff"),
-  url("https://db.onlinewebfonts.com/t/a86819d47a174a4b2d45d05cb4db1ecb.ttf")format("truetype"),
-  url("https://db.onlinewebfonts.com/t/a86819d47a174a4b2d45d05cb4db1ecb.svg#Life")format("svg");
-}
-
-@font-face {
-  font-family: "GT Eesti Text Trial Rg";
-  src: url("https://db.onlinewebfonts.com/t/2e8d1f84e8a0e6cc0c9773b494285329.eot");
-  src: url("https://db.onlinewebfonts.com/t/2e8d1f84e8a0e6cc0c9773b494285329.eot?#iefix")format("embedded-opentype"),
-  url("https://db.onlinewebfonts.com/t/2e8d1f84e8a0e6cc0c9773b494285329.woff2")format("woff2"),
-  url("https://db.onlinewebfonts.com/t/2e8d1f84e8a0e6cc0c9773b494285329.woff")format("woff"),
-  url("https://db.onlinewebfonts.com/t/2e8d1f84e8a0e6cc0c9773b494285329.ttf")format("truetype"),
-  url("https://db.onlinewebfonts.com/t/2e8d1f84e8a0e6cc0c9773b494285329.svg#GT Eesti Text Trial Rg")format("svg");
-}
+@import url('https://fonts.cdnfonts.com/css/gt-eesti-display-trial');
+@import url('https://fonts.cdnfonts.com/css/gloock-2');
 
 
 :root {
@@ -39,8 +22,7 @@
 
 body {
   color: white;
-  font-family: "GT Eesti Text Trial Rg";
-
+  font-family: 'GT Eesti Text Trial', sans-serif;
 }
 
 @layer utilities {
@@ -55,8 +37,15 @@ body {
   background-size: cover;
   background-position: center center;
 } */
+
+
 .hero h1{
-  font-family: "Life";
+  font-family: 'Gloock', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Gloock', sans-serif;
+  /* @apply font-medium; */
 }
 
 /* Marquee styles */
@@ -95,12 +84,22 @@ body {
 }
 
 .btn{
-  @apply bg-amber-600 text-white px-8 py-2 rounded-full mt-8 inline-block w-max;
+  @apply bg-amber-600 px-8 py-3 rounded-full w-max inline-block text-white hover:shadow-lg hover:bg-amber-700;
 }
 
+
 body {
-  background-size: 70px 70px;
+  background-size: 55px 55px;
   background-image:
     linear-gradient(to right, rgba(128, 128, 128, 0.25) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(128, 128, 128, 0.25) 1px, transparent 1px);
+  color: black;
+}
+
+p {
+  @apply text-base sm:text-lg; 
+}
+
+ol li{
+  @apply text-sm sm:text-base;
 }
