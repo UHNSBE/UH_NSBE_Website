@@ -3,10 +3,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from "react";
 
-export default function Page(){
-  const [selectedPackage, setSelectedPackage] = useState("Bronze");
+export default function Page() {
+  // Explicitly define the valid package types as a union of string literals
+  type PackageType = 'Bronze' | 'Silver' | 'Gold' | 'Platinum' | 'Vanguard';
 
-  const packages = {
+  // Define the structure of the packages object
+  const packages: Record<PackageType, { title: string; amount: string; benefits: string[] }> = {
     Bronze: {
       title: "Bronze Sponsor",
       amount: "$500 - $1999",
@@ -34,6 +36,9 @@ export default function Page(){
     },
   };
 
+  // Use the PackageType to set the type for selectedPackage
+  const [selectedPackage, setSelectedPackage] = useState<PackageType>("Bronze");
+
   return (
     <div>
       <h1 className='text-6xl w-11/12 mx-auto md:text-7xl text-center pt-24  relative'>Partner with UH NSBE</h1>
@@ -57,7 +62,7 @@ export default function Page(){
               <button
                 key={pkg}
                 className={`px-4 py-2 m-2 ${selectedPackage === pkg ? "bg-amber-600 text-white" : "bg-gray-200"}`}
-                onClick={() => setSelectedPackage(pkg)}
+                onClick={() => setSelectedPackage(pkg as PackageType)} // Cast to PackageType
               >
                 {pkg} Sponsor
               </button>
