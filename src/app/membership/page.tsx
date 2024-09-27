@@ -37,7 +37,7 @@ export default function Page() {
             return;
         }
         try {
-            const response = await axios.post('/api/membership', formData);
+            const response = await axios.post('/api/stripe/register', formData);
             const data = response.data;
 
             if (!data.ok) throw new Error('Something went wrong');
