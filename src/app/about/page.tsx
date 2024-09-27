@@ -25,7 +25,7 @@ export default function page() {
             <section className="w-11/12 mx-auto py-16 pb-24 sm:pb-32">
                 <h2 className="text-5xl text-center mb-12  ">Why NSBE?</h2>
                 <p className="text-center w-11/12 sm:w-3/5 mx-auto text-base sm:text-lg mb-16">
-                At our chapter, we stay motivated to succeed in engineering in black excellence by having a deep understanding of our "Why NSBE". Discover what our members have to say about their experiences with NSBE at the University of Houston.
+                {`At our chapter, we stay motivated to succeed in engineering in black excellence by having a deep understanding of our "Why NSBE". Discover what our members have to say about their experiences with NSBE at the University of Houston.`}
                 </p>
                 <div className="flex flex-col items-center lg:items-start lg:flex-row justify-center gap-12">
                     <div className="relative flex flex-col items-center p-8 rounded-xl bg-gradient-to-b  from-amber-800 to-amber-500 text-white max-w-sm shadow-lg h-auto">
@@ -40,7 +40,7 @@ export default function page() {
                         <h3 className="text-2xl font-semibold">Sydney Blakely</h3>
                         <p className="text-lg italic">Senator ‘23 - ’24</p>
                         <p className="text-center mt-4">
-                            "Why NSBE?’ …Because I found a community of like-minded engineering students!"
+                            {`"Why NSBE?’ …Because I found a community of like-minded engineering students!"`}
                         </p>
                     </div>
                     <div className="relative flex flex-col items-center p-8 rounded-xl bg-gradient-to-b  from-amber-800 to-amber-500 text-white max-w-sm shadow-lg h-auto">
@@ -55,7 +55,7 @@ export default function page() {
                         <h3 className="text-2xl font-semibold">Micah Le-Masakela</h3>
                         <p className="text-lg italic">Chair ‘23 - ‘24</p>
                         <p className="text-center mt-4">
-                            "… the first time I felt seen not only as a black student but a woman pursuing a STEM degree was by joining NSBE…they believed in me before I even saw my potential as a leader…"
+                            {`"… the first time I felt seen not only as a black student but a woman pursuing a STEM degree was by joining NSBE…they believed in me before I even saw my potential as a leader…"`}
                         </p>
                     </div>
                     <div className="relative flex flex-col items-center p-8 rounded-xl bg-gradient-to-b from-amber-800 to-amber-500 text-white max-w-sm shadow-lg">
@@ -69,9 +69,9 @@ export default function page() {
                         </div>
 
                         <h3 className="text-2xl font-semibold">Evan Sherman</h3>
-                        <p className="text-lg italic">Financial Advisor '23 - '24</p>
+                        <p className="text-lg italic">{`Financial Advisor '23 - '24`}</p>
                         <p className="text-center mt-4">
-                            "Why NSBE?'… I did better in my classes by making friends in UH-NSBE."
+                            {`"Why NSBE?'… I did better in my classes by making friends in UH-NSBE."`}
                         </p>
                     </div>
                 </div>

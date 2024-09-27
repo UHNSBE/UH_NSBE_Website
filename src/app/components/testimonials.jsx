@@ -20,7 +20,7 @@ export default function Testimonials() {
                     <h3 className="text-2xl font-semibold">Sarah Johnson</h3>
                     <p className="text-lg italic">Small Business Owner</p>
                     <p className="text-center mt-4">
-                        "Since integrating this solution into our workflow, we've experienced a significant improvement in efficiency and collaboration."
+                        {`"Since integrating this solution into our workflow, we've experienced a significant improvement in efficiency and collaboration."`}
                     </p>
                 </div>
                 <div className="relative flex flex-col items-center p-8 rounded-xl bg-gradient-to-b from-gray-800 to-gray-900 text-white max-w-sm shadow-lg">
@@ -34,7 +34,7 @@ export default function Testimonials() {
                     <h3 className="text-2xl font-semibold">David Patel</h3>
                     <p className="text-lg italic">Project Manager</p>
                     <p className="text-center mt-4">
-                        "I've tested numerous options in this category, but one stands out for its intuitive design and comprehensive functionality."
+                        {`"I've tested numerous options in this category, but one stands out for its intuitive design and comprehensive functionality."`}
                     </p>
                 </div>
                 <div className="relative flex flex-col items-center p-8 rounded-xl bg-gradient-to-b from-gray-800 to-gray-900 text-white max-w-sm shadow-lg">
@@ -48,7 +48,7 @@ export default function Testimonials() {
                     <h3 className="text-2xl font-semibold">Emily Carter</h3>
                     <p className="text-lg italic">Operations Manager</p>
                     <p className="text-center mt-4">
-                        "The tool we've adopted has surpassed our expectations, providing invaluable insights and support as our business continues to grow."
+                        {`"The tool we've adopted has surpassed our expectations, providing invaluable insights and support as our business continues to grow."`}
                     </p>
                 </div>
             </div>

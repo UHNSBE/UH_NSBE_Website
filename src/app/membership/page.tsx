@@ -5,7 +5,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-export default function page() {
+export default function Page() {
     const [showModal, setShowModal] = useState(false);
 
     const [formData, setFormData] = useState({

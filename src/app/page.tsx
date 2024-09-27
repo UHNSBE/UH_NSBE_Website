@@ -83,7 +83,7 @@ export default function Home() {
             <div className="p-4">
               <h3 className="text-left mb-2 bg-black p-2 w-max">Excel Academically</h3>
               <p className="text-left">
-                NSBE's main goal is to strive for black excellence. That includes hosting academic excellence focused events like study nights, mentorship program initiatives and tutoring opportunities! 
+                {`NSBE's main goal is to strive for black excellence. That includes hosting academic excellence focused events like study nights, mentorship program initiatives and tutoring opportunities!`}
               </p>
             </div>
           </div>
@@ -133,8 +133,8 @@ export default function Home() {
       <section className="h-[80vh] flex justify-center items-center">
         <div className="w-11/12 sm:w-10/12 mx-auto flex flex-col lg:flex-row justify-between gap-6">
           <div className="w-full lg:w-7/12 flex flex-col justify-center">
-            <h1 className="text-4xl   mb-6">Don't miss out on our upcoming events</h1>
-            <p>Welcome to the University of Houston Chapter of the National Society of Black Engineers. Come out and enjoy yourself at any of our events! Each event we host is eligible for points. Points are used to determine a member's participation and factor into conferences, sponsorships, and scholarships.</p>
+            <h1 className="text-4xl   mb-6">{`Don't miss out on our upcoming events`}</h1>
+          <p>{`Welcome to the University of Houston Chapter of the National Society of Black Engineers. Come out and enjoy yourself at any of our events! Each event we host is eligible for points. Points are used to determine a member's participation and factor into conferences, sponsorships, and scholarships.`}</p>
           </div>
 
           <div className="text-2xl">
