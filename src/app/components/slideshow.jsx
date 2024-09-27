@@ -19,7 +19,7 @@ export default function Slideshow() {
 
   return (
     <div className="" style={{width: '100%', height: '100%', position: 'absolute'}}>
-      <div className="h-full w-full absolute bg-black  opacity-35 z-[2]"></div>
+      <div className="h-full w-full absolute bg-black opacity-30 z-[2]"></div>
       {images.map((src, index) => (
         <Image
           key={src.link}

@@ -48,9 +48,9 @@ export default function page(){
         
       </section>
 
-      <div className="flex py-20 mx-auto w-11/12 justify-center">
+      <div className="flex flex-col md:flex-row py-20 mx-auto w-11/12 justify-center">
         {/* Sponsorship Package Section */}
-        <div className="w-auto px-6 border-r-2 mr-6 border-black">
+        <div className="w-auto px-6 md:border-r-2 md:mr-6 md:border-black">
           <h1 className="text-4xl mb-6 text-center">Sponsorship Packages</h1>
           <div className="tabs mb-6 text-center">
             {Object.keys(packages).map((pkg) => (
@@ -64,7 +64,7 @@ export default function page(){
             ))}
           </div>
 
-          <div className="bg-white p-8 shadow-lg flex flex-col h-64">
+          <div className="bg-white p-8 shadow-lg flex flex-col h-72">
             <h2 className="text-2xl mb-4">{packages[selectedPackage].title}</h2>
             <p className="text-left">{packages[selectedPackage].amount}</p>
             <ul className="text-left list-disc list-inside">
@@ -76,8 +76,8 @@ export default function page(){
           </div>
         </div>
 
-        <section className="w-4/12">
-          <h1 className="text-4xl mb-8 text-center">Payment Methods</h1>
+        <section className="w-full md:w-4/12 mt-24 md:mt-0">
+          <h1 className="text-4xl mb-8 text-center md:mt-0">Payment Methods</h1>
           <div className="w-11/12 mx-auto">
             <p className='mt-4 font-semibold'>We accept the following digital payment methods:</p>
             <ul className="list-disc list-inside">
@@ -100,7 +100,7 @@ export default function page(){
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-11/12 mx-auto items-center">
           <Image className='mx-auto w-auto h-52' src="/partners/albemarle.webp" alt="Partner 1" width={200} height={100} />
           <Image className='mx-auto w-auto h-52' src="/partners/black_and_veatch.png" alt="Partner 2" width={200} height={100} />
-          <Image className='mx-auto w-72 h-auto' src="/partners/BP.jpeg" alt="Partner 3" width={200} height={100} />
+          <Image className='mx-auto w-full h-auto' src="/partners/BP.jpeg" alt="Partner 3" width={200} height={100} />
           <Image className='mx-auto w-72 h-auto' src="/partners/kiewit.jpg" alt="Partner 4" width={200} height={100} />
           <Image className='mx-auto w-72 h-auto' src="/partners/linde.jpeg" alt="Partner 5" width={200} height={100} />
           <Image className='mx-auto w-72 h-auto' src="/partners/technipfmc.jpg" alt="Partner 6" width={200} height={100} />
