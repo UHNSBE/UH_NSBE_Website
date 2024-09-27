@@ -17,8 +17,8 @@ export async function POST(request: NextRequest) {
                 }
             ],
             mode: 'payment',
-            success_url: `${process.env.NEXT_BASE_URL}/billing`,
-            cancel_url: `${process.env.NEXT_BASE_URL}/billing`,
+            success_url: `https://uh-nsbe-website.vercel.app/membership`,
+            cancel_url: `https://uh-nsbe-website.vercel.app/membership`,
             metadata: formData
         });
         return NextResponse.json({result: checkoutSession, ok: true});
