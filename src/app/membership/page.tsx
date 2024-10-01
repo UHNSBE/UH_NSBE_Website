@@ -109,8 +109,8 @@ export default function Page() {
 
                 {/* Modal for Local Membership Registration */}
                 {showModal && (
-                    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm z-50">
-                        <div className="bg-white rounded-lg w-11/12 max-w-2xl text-black">
+                    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 z-50">
+                        <div className="bg-white rounded-lg h-full w-full md:h-[70vh] md:w-11/12 md:max-w-2xl overflow-y-auto md:overflow-y-visible text-black flex flex-col">
                             <div className="flex justify-between items-center p-4 bg-neutral-800 text-white rounded-t-lg">
                                 <h2 className="text-xl font-bold">Local Membership Form</h2>
                                 <button
@@ -121,7 +121,7 @@ export default function Page() {
                                 </button>
                                 
                             </div>
-                            <div className="overflow-y-auto h-[70vh] p-4">
+                            <div className="md:overflow-y-auto flex-1 p-4">
                                 <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
                                     <label className="flex flex-col">
                                         First Name:
@@ -191,7 +191,7 @@ export default function Page() {
                                         <input type="date" name="birthday" className="p-2 rounded-md border border-gray-300" value={formData.birthday} onChange={handleChange} required/>
                                     </label>
 
-                                    <button type="submit" className="p-3 bg-amber-600 text-white rounded-md mt-4">
+                                    <button type="submit" className="p-3 bg-amber-600 text-white rounded-md mt-4 mb-24 md:mb-0">
                                         Proceed to Payment
                                     </button>
                                 </form>

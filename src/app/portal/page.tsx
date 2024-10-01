@@ -220,7 +220,7 @@ export default function MembershipPortal() {
     const fetchLeaderboardData = async () => {
       try {
         // Replace this URL with your published Google Sheet CSV URL
-        const response = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vT5McbcOxeAoIIaTBiQrFOE4vU_6tE9__7Jk-_uCXotUEhZAeGp_tEkLYLUIjGX6BMQBtWk0Q2iHVJg/pub?output=csv');
+        const response = await fetch(process.env.NEXT_PUBLIC_LEADERBOARD_FILE as string);
         const text = await response.text();
         const rows = text.split('\n').map(row => row.split(','));
         

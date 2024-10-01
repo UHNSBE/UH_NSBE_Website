@@ -9,7 +9,7 @@ export default function Home() {
         <div className="flex justify-between w-11/12 mx-auto z-[3]">
           <div className="flex flex-col gap-5 text-white">
             <p>University of Houston</p>
-            <h1 className="  text-6xl w-7/12">National Society of Black Engineers</h1>
+            <h1 className="md:text-6xl text-5xl w-7/12">National Society of Black Engineers</h1>
             <button className="btn mt-3">Become a member</button>
           </div>
           <div><Image className="-mt-5" src="/NSBE-General-BlackShield 1.png" alt="NSBE LOGO" width={250} height={250}/></div>

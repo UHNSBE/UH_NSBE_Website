@@ -90,7 +90,7 @@ export default function RootLayout({
         <main className="flex flex-col">
           {!isAppPath && (
             <div className="w-full">
-              <nav className="flex justify-between w-11/12 mx-auto py-14 relative">
+              <nav className="flex justify-between w-11/12 mx-auto py-12 relative">
                 <div className="text-3xl flex justify-center items-center">
                   <div className="w-40 md:w-48 h-auto"><Image className="invert" src="/NSBE-General-White.png" alt="NSBE LOGO" width={250} height={250}/></div>
                   <div className="w-12 md:w-16 h-auto border-l-2 border-black pl-2">
