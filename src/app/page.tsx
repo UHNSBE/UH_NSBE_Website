@@ -162,7 +162,7 @@ export default function Home() {
             Contact Us
           </p>
         <div className="p-8 max-w-3xl mx-auto text-black">
-          <form action="https://formsubmit.co/b3ef9d60a2dff5e611619ba0bfea1fc3" method="POST" className="flex flex-col space-y-4">
+          <form action="https://formsubmit.co/businessintelligence@uhnsbe.org" method="POST" className="flex flex-col space-y-4">
             <label htmlFor="name" className="text-sm">Name (Required)</label>
             <input
               type="text"
