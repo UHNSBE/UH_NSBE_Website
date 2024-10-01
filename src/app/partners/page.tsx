@@ -45,7 +45,8 @@ export default function Page() {
 
       <section className='pt-15 mx-auto w-11/12 my-24'>
         <p className='text-center w-full sm:w-8/12 mx-auto mb-3'>We would love for you to partner with the University of Houston chapter of the National Society of Black Engineers. A partnership is far greater than a financial commitment; it will help to build a solid foundation for engineers at  the University of Houston.</p>
-        <p className='text-center w-full sm:w-8/12 mx-auto mb-8'>If you are interested in partnering with the University of Houston National Society of Black Engineers Chapter, please complete the <a href='/partners' className='text-amber-800 underline'>Sponsorship Packet</a> or become a partner electronically below.</p>
+        <p className='text-center w-full sm:w-8/12 mx-auto mb-3'>If you are interested in partnering with the University of Houston National Society of Black Engineers Chapter, please complete the <a href='/files/PartnershipPacket_2024-25.pdf' target="_blank" rel="noopener noreferrer" className='text-amber-800 underline'>Sponsorship Packet</a>.</p>
+        <p className='text-center w-full sm:w-8/12 mx-auto mb-8'>Please consider contributing to the University of Houston chapter of  NSBE. Your contributions support programming for our members and help us  send talented young engineers to Regional and National Conferences  where they can interact with industry professionals and secure some  internships. Any amount is appreciated!</p>
         <div className='text-center w-full sm:w-8/12 mx-auto mb-3 italic text-neutral-700'>
           <p className='text-sm'>If you have questions or comments regarding the Sponsorship Packet, please email our treasurer at treasurer@uhnsbe.org. Thank you!</p>
           <p className='text-sm'>Please note that UH NSBE is a 501(c)3 nonprofit organization and donors will be given an acknowledgement receipt for tax purposes.</p>
@@ -83,6 +84,13 @@ export default function Page() {
 
         <section className="w-full md:w-4/12 mt-24 md:mt-0">
           <h1 className="text-4xl mb-8 text-center md:mt-0">Payment Methods</h1>
+
+          <div className='flex justify-center gap-3'>
+              <a className="btn" href='/files/PartnershipPacket_2024-25.pdf' target="_blank" rel="noopener noreferrer">Sponsor</a>
+              <div className='border-l-2 border-black'></div>
+              <a className="btn" href={process.env.NEXT_PUBLIC_STRIPE_DONATE_LINK}>Donate</a>
+            </div>
+
           <div className="w-11/12 mx-auto">
             <p className='mt-4 font-semibold'>We accept the following digital payment methods:</p>
             <ul className="list-disc list-inside">

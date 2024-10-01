@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Icon } from '@iconify/react';
 import "./globals.css";
 
@@ -27,13 +27,66 @@ export default function RootLayout({
 
   const isAppPath = pathname === "/app";
 
+  const [loading, setLoading] = useState(true);
+  const [fadeOut, setFadeOut] = useState(false);
+  // Simulate loading for demonstration purposes
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setFadeOut(true); // Start fading out
+      const fadeOutTimer = setTimeout(() => {
+        setLoading(false); // Hide the loader after fade-out
+      }, 500); // Match this duration with CSS animation duration
+
+      return () => clearTimeout(fadeOutTimer);
+    }, 1000); // Total loading time
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <html lang="en" className="noise-bg">
       <head>
+        <link rel="icon" href="/favicon.ico" />
+
+        {/* Primary Meta Tags */}
+        <title>UH NSBE - University of Houston Chapter of the National Society of Black Engineers</title>
+        <meta name="title" content="UH NSBE - University of Houston Chapter of the National Society of Black Engineers" />
+        <meta name="description" content="Join UH NSBE to build a strong community of engineers, connect with industry professionals, and secure career-advancing opportunities." />
+        
+        {/* SEO Keywords */}
+        <meta name="keywords" content="UH NSBE, NSBE, University of Houston, Black Engineers, Engineering, STEM, Career Development, Internships, Scholarships, Networking" />
+        <meta name="author" content="University of Houston NSBE" />
+
+        {/* Viewport for responsive design */}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {/* Favicon */}
+        <link rel="icon" href="/favicon.ico" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://uhnsbe.com/" />
+        <meta property="og:title" content="UH NSBE - University of Houston Chapter of the National Society of Black Engineers" />
+        <meta property="og:description" content="Join UH NSBE to build a strong community of engineers, connect with industry professionals, and secure career-advancing opportunities." />
+        <meta property="og:image" content="/images/uh-nsbe-og-image.jpg" />
+        
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://uhnsbe.com/" />
+        <meta property="twitter:title" content="UH NSBE - University of Houston Chapter of the National Society of Black Engineers" />
+        <meta property="twitter:description" content="Join UH NSBE to build a strong community of engineers, connect with industry professionals, and secure career-advancing opportunities." />
+        <meta property="twitter:image" content="/images/uh-nsbe-og-image.jpg" />
+        
         <link href="https://fonts.cdnfonts.com/css/gt-eesti-display-trial" rel="stylesheet"/>
         <link href="https://fonts.cdnfonts.com/css/gloock-2" rel="stylesheet"/>
       </head>
       <body className="bg-[#e6e6e6] bg-opacity-90 mx-auto"> {/* bg-[#3a1d00]  */}
+        
+        {/* {loading && (
+          <div className={`loader ${fadeOut ? 'fade-out' : ''}`}>
+            Loading...
+          </div>
+        )} */}
         <main className="flex flex-col">
           {!isAppPath && (
             <div className="w-full">

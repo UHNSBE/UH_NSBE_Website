@@ -18,7 +18,7 @@ export default function Slideshow() {
   }, []);
 
   return (
-    <div className="" style={{width: '100%', height: '100%', position: 'absolute'}}>
+    <div className="fade-in" style={{width: '100%', height: '100%', position: 'absolute'}}>
       <div className="h-full w-full absolute bg-black opacity-30 z-[2]"></div>
       {images.map((src, index) => (
         <Image
@@ -31,6 +31,7 @@ export default function Slideshow() {
           className={`transition-opacity duration-1000 ${
             index === currentImage ? 'opacity-100' : 'opacity-0'
           }`}
+          priority={true}
         />
       ))}
     </div>

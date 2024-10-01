@@ -103,3 +103,35 @@ p {
 ol li{
   @apply text-sm sm:text-base;
 }
+
+/* Fade out animation */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255); /* Adjust as necessary */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure loader is above all other content */
+  transition: opacity 0.5s ease; /* Smooth transition for opacity */
+}
+
+.loader.fade-out {
+  opacity: 0; /* Start fade out */
+}
+
+.loader:not(.fade-out) {
+  opacity: 1; /* Fully visible */
+}

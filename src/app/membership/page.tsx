@@ -14,10 +14,10 @@ export default function Page() {
         uhId: '',
         email: '',
         major: '',
-        gender: '',
-        classification: '',
-        tShirtSize: '',
-        internationalStudent: '',
+        gender: 'Male',
+        classification: 'Freshman',
+        tShirtSize: 'S',
+        internationalStudent: 'No',
         birthday: '',
     });
 
@@ -125,32 +125,32 @@ export default function Page() {
                                 <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
                                     <label className="flex flex-col">
                                         First Name:
-                                        <input type="text" name="firstName" className="p-2 rounded-md border border-gray-300" placeholder="First Name" value={formData.firstName} onChange={handleChange}/>
+                                        <input type="text" name="firstName" className="p-2 rounded-md border border-gray-300" placeholder="First Name" value={formData.firstName} onChange={handleChange} required/>
                                     </label>
 
                                     <label className="flex flex-col">
                                         Last Name:
-                                        <input type="text" name="lastName" className="p-2 rounded-md border border-gray-300" placeholder="Last Name" value={formData.lastName} onChange={handleChange}/>
+                                        <input type="text" name="lastName" className="p-2 rounded-md border border-gray-300" placeholder="Last Name" value={formData.lastName} onChange={handleChange} required/>
                                     </label>
 
                                     <label className="flex flex-col">
                                         UH ID:
-                                        <input type="text" name="uhId" className="p-2 rounded-md border border-gray-300" placeholder="UH ID" value={formData.uhId} onChange={handleChange}/>
+                                        <input type="text" name="uhId" className="p-2 rounded-md border border-gray-300" placeholder="UH ID" value={formData.uhId} onChange={handleChange} required/>
                                     </label>
 
                                     <label className="flex flex-col">
                                         Email:
-                                        <input type="email" name="email" className="p-2 rounded-md border border-gray-300" placeholder="Email" value={formData.email} onChange={handleChange} />
+                                        <input type="email" name="email" className="p-2 rounded-md border border-gray-300" placeholder="Email" value={formData.email} onChange={handleChange} required/>
                                     </label>
 
                                     <label className="flex flex-col">
                                         Major:
-                                        <input type="text" name="major" className="p-2 rounded-md border border-gray-300" placeholder="Major" value={formData.major} onChange={handleChange}/>
+                                        <input type="text" name="major" className="p-2 rounded-md border border-gray-300" placeholder="Major" value={formData.major} onChange={handleChange} required/>
                                     </label>
 
                                     <label className="flex flex-col">
                                         Gender:
-                                        <select name="gender" className="p-2 rounded-md border border-gray-300" value={formData.gender} onChange={handleChange}>
+                                        <select name="gender" className="p-2 rounded-md border border-gray-300" value={formData.gender} onChange={handleChange} required>
                                             <option value="Male">Male</option>
                                             <option value="Female">Female</option>
                                             <option value="Other">Other</option>
@@ -159,7 +159,7 @@ export default function Page() {
 
                                     <label className="flex flex-col">
                                         Classification:
-                                        <select name="classification" className="p-2 rounded-md border border-gray-300" value={formData.classification} onChange={handleChange}>
+                                        <select name="classification" className="p-2 rounded-md border border-gray-300" value={formData.classification} onChange={handleChange} required>
                                             <option value="Freshman">Freshman</option>
                                             <option value="Sophomore">Sophomore</option>
                                             <option value="Junior">Junior</option>
@@ -170,7 +170,7 @@ export default function Page() {
 
                                     <label className="flex flex-col">
                                         T-Shirt Size:
-                                        <select name="tShirtSize" className="p-2 rounded-md border border-gray-300" value={formData.tShirtSize} onChange={handleChange}>
+                                        <select name="tShirtSize" className="p-2 rounded-md border border-gray-300" value={formData.tShirtSize} onChange={handleChange} required>
                                             <option value="S">S</option>
                                             <option value="M">M</option>
                                             <option value="L">L</option>
@@ -180,7 +180,7 @@ export default function Page() {
 
                                     <label className="flex flex-col">
                                         Are you an international student?:
-                                        <select name="internationalStudent" className="p-2 rounded-md border border-gray-300" value={formData.internationalStudent} onChange={handleChange}>
+                                        <select name="internationalStudent" className="p-2 rounded-md border border-gray-300" value={formData.internationalStudent} onChange={handleChange} required>
                                             <option value="No">No</option>
                                             <option value="Yes">Yes</option>
                                         </select>
@@ -188,7 +188,7 @@ export default function Page() {
 
                                     <label className="flex flex-col">
                                         Birthday:
-                                        <input type="date" name="birthday" className="p-2 rounded-md border border-gray-300" value={formData.birthday} onChange={handleChange}/>
+                                        <input type="date" name="birthday" className="p-2 rounded-md border border-gray-300" value={formData.birthday} onChange={handleChange} required/>
                                     </label>
 
                                     <button type="submit" className="p-3 bg-amber-600 text-white rounded-md mt-4">
