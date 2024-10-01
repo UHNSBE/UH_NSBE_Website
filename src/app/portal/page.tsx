@@ -34,7 +34,7 @@ const Leaderboard: React.FC<{ data: LeaderboardEntry[] }> = ({ data }) => {
               <h3 className="text-2xl mb-2">
                 {selectedMember.firstName} {selectedMember.lastName}
               </h3>
-              <p className="text-lg text-gray-400">PSID: {selectedMember.psid}</p>
+              {/* <p className="text-lg text-gray-400">PSID: {selectedMember.psid}</p> */}
               <p className="text-6xl text-[#da6e20] font-bold mt-4">
                 {selectedMember.points} pts
               </p>
@@ -44,7 +44,7 @@ const Leaderboard: React.FC<{ data: LeaderboardEntry[] }> = ({ data }) => {
               {data.length > 0 && (
                 <>
                   <h3 className="text-2xl mb-2">{data[0].firstName} {data[0].lastName}</h3>
-                  <p className="text-lg text-gray-400">PSID: {data[0].psid}</p>
+                  {/* <p className="text-lg text-gray-400">PSID: {data[0].psid}</p> */}
                   <p className="text-6xl text-[#da6e20] font-bold mt-4">{data[0].points} pts</p>
                 </>
               )}
