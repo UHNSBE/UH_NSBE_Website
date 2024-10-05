@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Slideshow from "./components/slideshow";
+import ContactForm from "./components/contactform";
 
 export default function Home() {
   return (
@@ -161,61 +162,7 @@ export default function Home() {
           <p className="underline mb-4">
             Contact Us
           </p>
-        <div className="p-8 max-w-3xl mx-auto text-black">
-          <form action="https://formsubmit.co/businessintelligence@uhnsbe.org" method="POST" className="flex flex-col space-y-4">
-            <label htmlFor="name" className="text-sm">Name (Required)</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              required
-              className="p-3 border-2 border-black bg-[#4d4d4d] bg-opacity-35 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#f2ba62]"
-            />
-
-            <label htmlFor="email" className="text-sm">Email (Required)</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              className="p-3 border-2 border-black bg-[#4d4d4d] bg-opacity-35 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#f2ba62]"
-            />
-
-            <label htmlFor="category" className="text-sm">I am ...</label>
-            <select
-              id="category"
-              name="category"
-              required
-              className="p-3 border-2 border-black bg-[#4d4d4d] bg-opacity-35 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#f2ba62]"
-            >
-              <option value="" disabled selected>Select an option</option>
-              <option value="option1">A Student</option>
-              <option value="option2">An Alum</option>
-              <option value="option3">A Sponsor</option>
-              <option value="option4">An Company Representative</option>
-            </select>
-
-            <label htmlFor="message" className="text-sm">Message (Required)</label>
-            <textarea
-              id="message"
-              name="message"
-              required
-              className="p-3 border-2 border-black bg-[#4d4d4d] bg-opacity-35 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#f2ba62]"
-            ></textarea>
-
-            <button
-              type="submit"
-              className="btn !w-full !rounded-lg"
-            >
-              Send
-            </button>
-          </form>
-
-          <p className="text-center mt-6">
-            Have any questions? Feel free to reach out to us through the contact form – emailing our secretary directly, or any of our socials! <br />
-            <a href="mailto:secretary@uhnsbe.org" className="text-black underline">secretary@uhnsbe.org</a>
-          </p>
-        </div>
+        <ContactForm />
       </section>
 
     </>

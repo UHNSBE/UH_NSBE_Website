@@ -1,6 +1,5 @@
 'use client';
 import React, { useState, useRef, useEffect } from 'react';
-import { Icon } from '@iconify/react';
 
 interface LeaderboardEntry {
   firstName: string;
@@ -8,20 +7,82 @@ interface LeaderboardEntry {
   psid: string;
   points: number;
 }
+// Levenshtein Distance function for fuzzy name matching
+const levenshtein = (a: string, b: string) => {
+  const an = a.length, bn = b.length;
+  if (an === 0) return bn;
+  if (bn === 0) return an;
+
+  const matrix = Array.from({ length: bn + 1 }, (_, i) => [i]);
+  matrix[0] = Array.from({ length: an + 1 }, (_, i) => i);
+
+  for (let i = 1; i <= bn; i++) {
+    for (let j = 1; j <= an; j++) {
+      if (b[i - 1] === a[j - 1]) {
+        matrix[i][j] = matrix[i - 1][j - 1];
+      } else {
+        matrix[i][j] = Math.min(
+          matrix[i - 1][j - 1] + 1,
+          matrix[i][j - 1] + 1,
+          matrix[i - 1][j] + 1
+        );
+      }
+    }
+  }
+
+  return matrix[bn][an];
+};
+
+// Matching function with both fuzzy and substring search
+const matchNames = (input: string, data: LeaderboardEntry[]) => {
+  const threshold = 3;
+  const lowerInput = input.toLowerCase();
+
+  return data
+    .map((member) => {
+      const fullName = `${member.firstName} ${member.lastName}`.toLowerCase();
+      return {
+        ...member,
+        distance: levenshtein(lowerInput, fullName),
+        contains: fullName.includes(lowerInput) || member.psid.toLowerCase().includes(lowerInput),
+      };
+    })
+    .filter((entry) => entry.distance <= threshold || entry.contains)
+    .sort((a, b) => {
+      if (a.contains && !b.contains) return -1;
+      if (!a.contains && b.contains) return 1;
+      return a.distance - b.distance;
+    });
+};
 
 const Leaderboard: React.FC<{ data: LeaderboardEntry[] }> = ({ data }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedMember, setSelectedMember] = useState<LeaderboardEntry | null>(null);
+  const memberRefs = useRef<Array<HTMLDivElement | null>>([]);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const query = e.target.value.toLowerCase();
     setSearchQuery(query);
-    const foundMember = data.find(
-      (member) =>
-        member.firstName.toLowerCase().includes(query) ||
-        member.lastName.toLowerCase().includes(query)
-    );
-    setSelectedMember(foundMember || null);
+
+    if (query === '') {
+      // Show top-scoring member when search query is empty
+      const topScorer = data.reduce((prev, current) => (prev.points > current.points ? prev : current), data[0]);
+      setSelectedMember(topScorer);
+    } else {
+      const matchedMembers = matchNames(query, data);
+      if (matchedMembers.length > 0) {
+        setSelectedMember(matchedMembers[0]);
+        const index = data.findIndex(member => member.psid === matchedMembers[0].psid);
+        if (index !== -1 && memberRefs.current[index]) {
+          memberRefs.current[index]?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+          });
+        }
+      } else {
+        setSelectedMember(null);
+      }
+    }
   };
 
   return (
@@ -32,9 +93,8 @@ const Leaderboard: React.FC<{ data: LeaderboardEntry[] }> = ({ data }) => {
           {selectedMember ? (
             <>
               <h3 className="text-2xl mb-2">
-                {selectedMember.firstName} {selectedMember.lastName}
+                {selectedMember.firstName}  {selectedMember.lastName}
               </h3>
-              {/* <p className="text-lg text-gray-400">PSID: {selectedMember.psid}</p> */}
               <p className="text-6xl text-[#da6e20] font-bold mt-4">
                 {selectedMember.points} pts
               </p>
@@ -43,18 +103,20 @@ const Leaderboard: React.FC<{ data: LeaderboardEntry[] }> = ({ data }) => {
             <>
               {data.length > 0 && (
                 <>
-                  <h3 className="text-2xl mb-2">{data[0].firstName} {data[0].lastName}</h3>
-                  {/* <p className="text-lg text-gray-400">PSID: {data[0].psid}</p> */}
-                  <p className="text-6xl text-[#da6e20] font-bold mt-4">{data[0].points} pts</p>
+                  <h3 className="text-2xl mb-2">
+                    {data[0].firstName} {data[0].lastName}
+                  </h3>
+                  <p className="text-6xl text-[#da6e20] font-bold mt-4">
+                    {data[0].points} pts
+                  </p>
                 </>
               )}
             </>
-              
           )}
           {/* Search bar */}
           <input
             type="text"
-            placeholder="Search member by name"
+            placeholder="Search by name or PSID"
             value={searchQuery}
             onChange={handleSearch}
             className="mt-auto p-2 rounded-lg w-full bg-gray-800 text-white"
@@ -63,7 +125,7 @@ const Leaderboard: React.FC<{ data: LeaderboardEntry[] }> = ({ data }) => {
 
         {/* Right side: Leaderboard list */}
         <div className="space-y-4 max-h-[31rem] overflow-y-auto mx-auto w-full pr-1">
-          {data.slice(0).map((item, index) => (
+          {data.map((item, index) => (
             <div
               key={index}
               className="flex items-center justify-between bg-black bg-opacity-80 border-2 border-[#8B4513] rounded-lg p-3 py-4"
