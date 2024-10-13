@@ -2,7 +2,53 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
+
+import { Card } from "@/components/ui/card"
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
+
+function TestimonialCard(props: any) {
+  return (
+    <Card className="w-full max-w-md p-8 grid gap-6 bg-opacity-55 bg-gradient-to-b from-amber-800 to-amber-500 text-white text-center">
+      <div className="flex flex-col items-center gap-4">
+        <Avatar className='!h-52 !w-52 mb-4'>
+          <AvatarImage src={props.image} />
+          <AvatarFallback>JD</AvatarFallback>
+        </Avatar>
+        <div>
+          <h3 className="text-2xl font-semibold">{props.name}</h3>
+          <p className="text-white opacity-75">{props.position}</p>
+        </div>
+      </div>
+      <blockquote className="text-lg font-medium leading-relaxed">
+        "{props.quote}"
+      </blockquote>
+    </Card>
+  )
+}
+
 export default function page() {
+    const testimonials = [
+        {
+          name: "Sydney Blakely",
+          position: "Senator ‘23 - ’24",
+          quote: `Why NSBE?... Because I found a community of like-minded engineering students!`,
+          image: "/testimonials/sydney.jpg"
+        },
+        {
+          name: "Micah Le-Masakela",
+          position: "Chair ‘23 - ’24",
+          quote: `The first time I felt seen not only as a black student but a woman pursuing a STEM degree was by joining NSBE. They believed in me before I even saw my potential as a leader.`,
+          image: "/testimonials/micah.jpg"
+        },
+        {
+          name: "Evan Sherman",
+          position: "Financial Advisor '23 - '24",
+          quote: `Why NSBE?... I did better in my classes by making friends in UH-NSBE.`,
+          image: "/testimonials/evan.jpg"
+        }
+      ];
+
+      
     return (
         <>
             <h1 className='text-6xl md:text-7xl text-center py-16 sm:py-24   relative'>All About NSBE</h1>
@@ -22,58 +68,16 @@ export default function page() {
                 <p className='text-center w-11/12 sm:w-4/5 mx-auto text-base sm:text-lg'>The National Society of Black Engineers at University of Houston is to increase the number of culturally responsible Black Engineers who excel academically, succeed professionally and positively impact the community. At the University of Houston NSBE, we envision a world where Black Engineers are leaders in innovation and creators of positive change within their communities. Our organization strives to empower students with the tools, resources, and networks necessary to thrive in their academic and professional endeavors. We are committed to building a strong, supportive community that fosters excellence, collaboration, and leadership among our members. We call the motivation that pushes us to bring to fruition our mission, our <i className='font-bold '>NSBE Why</i>.</p>
             </section>
 
-            <section className="w-11/12 mx-auto py-16 pb-24 sm:pb-32">
+            <section className="w-11/12 mx-auto py-16">
                 <h2 className="text-5xl text-center mb-12  ">Why NSBE?</h2>
                 <p className="text-center w-11/12 sm:w-3/5 mx-auto text-base sm:text-lg mb-16">
                 {`At our chapter, we stay motivated to succeed in engineering in black excellence by having a deep understanding of our "Why NSBE". Discover what our members have to say about their experiences with NSBE at the University of Houston.`}
                 </p>
-                <div className="flex flex-col items-center lg:items-start lg:flex-row justify-center gap-12">
-                    <div className="relative flex flex-col items-center p-8 rounded-xl bg-gradient-to-b  from-amber-800 to-amber-500 text-white max-w-sm shadow-lg h-auto">
-                        <div className='rounded-full border w-[200px] h-[200px]  lg:w-[300px] lg:h-[300px] overflow-hidden mb-6 relative'>
-                            <Image
-                                src="/testimonials/sydney.jpg"
-                                alt="Sydney Blakely"
-                                layout="fill"
-                                objectFit="cover"
-                            />
-                        </div>
-                        <h3 className="text-2xl font-semibold">Sydney Blakely</h3>
-                        <p className="text-lg italic">Senator ‘23 - ’24</p>
-                        <p className="text-center mt-4">
-                            {`"Why NSBE?’ …Because I found a community of like-minded engineering students!"`}
-                        </p>
-                    </div>
-                    <div className="relative flex flex-col items-center p-8 rounded-xl bg-gradient-to-b  from-amber-800 to-amber-500 text-white max-w-sm shadow-lg h-auto">
-                        <div className='rounded-full border w-[200px] h-[200px]  lg:w-[300px] lg:h-[300px] overflow-hidden mb-6 relative'>
-                            <Image
-                                src="/testimonials/micah.jpg"
-                                alt="Micah Le-Masakela"
-                                layout="fill"
-                                objectFit="cover"
-                            />
-                        </div>
-                        <h3 className="text-2xl font-semibold">Micah Le-Masakela</h3>
-                        <p className="text-lg italic">Chair ‘23 - ‘24</p>
-                        <p className="text-center mt-4">
-                            {`"… the first time I felt seen not only as a black student but a woman pursuing a STEM degree was by joining NSBE…they believed in me before I even saw my potential as a leader…"`}
-                        </p>
-                    </div>
-                    <div className="relative flex flex-col items-center p-8 rounded-xl bg-gradient-to-b from-amber-800 to-amber-500 text-white max-w-sm shadow-lg">
-                        <div className='rounded-full border w-[200px] h-[200px]  lg:w-[300px] lg:h-[300px] overflow-hidden mb-6 relative'>
-                            <Image
-                                src="/testimonials/evan.jpg"
-                                alt="Evan Sherman"
-                                layout="fill"
-                                objectFit="cover"
-                            />
-                        </div>
 
-                        <h3 className="text-2xl font-semibold">Evan Sherman</h3>
-                        <p className="text-lg italic">{`Financial Advisor '23 - '24`}</p>
-                        <p className="text-center mt-4">
-                            {`"Why NSBE?'… I did better in my classes by making friends in UH-NSBE."`}
-                        </p>
-                    </div>
+                <div className="flex flex-col items-center gap-12 lg:flex-row lg:justify-center">
+                    {testimonials.map((testimonial, index) => (
+                        <TestimonialCard name={testimonial.name} position={testimonial.position} quote={testimonial.quote} image={testimonial.image} key={index}></TestimonialCard>
+                    ))}
                 </div>
             </section>
 

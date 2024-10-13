@@ -71,62 +71,61 @@ export default function Home() {
       </section>
 
       <section className="py-16 pb-32 text-white">
-        <div className="w-10/12 max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-20">
+        <div className="w-11/12 max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-10 lg:gap-20">
           {/* Card 1 */}
-          <div className="bg-yellow-600 text-center h-[600px]">
+          <div className="bg-yellow-600 text-center h-auto flex flex-col">
             <Image
-              src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" // Replace with actual image path
+              src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Excel Academically"
               width={400}
               height={500}
-              className="w-full h-4/6 object-cover"
+              className="w-full h-64 lg:h-80 object-cover"
             />
-            <div className="p-4">
+            <div className="p-4 flex-grow">
               <h3 className="text-left mb-2 bg-black p-2 w-max">Excel Academically</h3>
               <p className="text-left">
-                {`NSBE's main goal is to strive for black excellence. That includes hosting academic excellence focused events like study nights, mentorship program initiatives and tutoring opportunities!`}
+                NSBE's main goal is to strive for black excellence. That includes hosting academic excellence focused events like study nights, mentorship program initiatives, and tutoring opportunities!
               </p>
             </div>
           </div>
 
           {/* Card 2 */}
-          <div className="bg-[#a73d3d] text-center h-[600px]">
+          <div className="bg-[#a73d3d] text-center h-auto flex flex-col">
             <Image
-              src="https://images.unsplash.com/photo-1630649945248-dc7d7c9ba79e?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" // Replace with actual image path
-              alt="Excel Academically"
+              src="https://images.unsplash.com/photo-1630649945248-dc7d7c9ba79e?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Succeed Professionally"
               width={400}
               height={500}
-              className="w-full h-4/6 object-cover"
+              className="w-full h-64 lg:h-80 object-cover"
             />
-            <div className="p-4">
-              <h3 className="text-left mb-2 bg-black p-2 w-max">Suceed Professionally</h3>
+            <div className="p-4 flex-grow">
+              <h3 className="text-left mb-2 bg-black p-2 w-max">Succeed Professionally</h3>
               <p className="text-left">
-              NSBE fosters a culturally responsible STEM community through events with company partners, the Engineering Career Center, and professional development opportunities.
+                NSBE fosters a culturally responsible STEM community through events with company partners, the Engineering Career Center, and professional development opportunities.
               </p>
             </div>
           </div>
 
-          {/* Card 3 */}
-          <div className="bg-[#698038] text-center h-[600px]">
+          {/* Card 3 (Centered in md) */}
+          <div className="bg-[#698038] text-center h-auto flex flex-col md:col-span-2 md:flex md:justify-center xl:col-span-1">
             <Image
-              src="https://images.unsplash.com/photo-1599059813005-11265ba4b4ce?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" // Replace with actual image path
-              alt="Excel Academically"
+              src="https://images.unsplash.com/photo-1599059813005-11265ba4b4ce?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Positively Impact the Community"
               width={400}
               height={500}
-              className="w-full h-4/6 object-cover"
+              className="w-full h-64 lg:h-80 object-cover"
             />
-            <div className="p-4">
+            <div className="p-4 flex-grow">
               <h3 className="text-left mb-2 bg-black p-2 w-max">Positively Impact the Community</h3>
               <p className="text-left">
-              NSBE goes beyond academic and professional success, making a positive impact through collaborations with members and companies across the Greater Houston area.
+                NSBE goes beyond academic and professional success, making a positive impact through collaborations with members and companies across the Greater Houston area.
               </p>
             </div>
           </div>
-
         </div>
 
         <div className="text-center mt-12">
-          <Link href="https://discord.com/invite/UK7evmj9d5" className="btn"> View Our Resources</Link>
+          <Link href="https://discord.com/invite/UK7evmj9d5" className="btn">View Our Resources</Link>
         </div>
       </section>
 
@@ -134,7 +133,7 @@ export default function Home() {
       <section className="h-[80vh] flex justify-center items-center">
         <div className="w-11/12 sm:w-10/12 mx-auto flex flex-col lg:flex-row justify-between gap-6">
           <div className="w-full lg:w-7/12 flex flex-col justify-center">
-            <h1 className="text-4xl   mb-6">{`Don't miss out on our upcoming events`}</h1>
+            <h1 className="text-4xl mb-6">{`Don't miss out on our upcoming events`}</h1>
           <p>{`Welcome to the University of Houston Chapter of the National Society of Black Engineers. Come out and enjoy yourself at any of our events! Each event we host is eligible for points. Points are used to determine a member's participation and factor into conferences, sponsorships, and scholarships.`}</p>
           </div>
 
@@ -144,16 +143,21 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="h-[80vh] flex justify-center items-center">
-        <div className="w-11/12 sm:w-10/12 mx-auto flex flex-col lg:flex-row-reverse justify-between gap-6">
-          <div className="w-full lg:w-5/12 flex flex-col justify-center text-left lg:text-right">
-            <h1 className="text-4xl mb-6">Join our community</h1>
+      <section className="h-[90vh] flex justify-center items-center w-11/12 mx-auto">
+        <div className="w-full lg:w-10/12 mx-auto flex flex-col lg:flex-row-reverse justify-between gap-6">
+          <div className="w-full lg:w-5/12 flex flex-col justify-center text-center lg:text-right">
+            <h1 className="text-4xl   mb-6">Join our community</h1>
             <p>UH NSBE is more than just an organization, it’s a family!
-            Come learn more about what it means to be a part of the wonderful  NSBE community, otherwise known as the NSBEfam, at the University of Houston.</p>
-            <Link href='/membership'><button className="btn mt-6 mr-auto ml-0 lg:ml-auto lg:mr-0">Become a member</button></Link>
+              Come learn more about what it means to be a part of the wonderful  NSBE community, otherwise known as the NSBEfam, at the University of Houston.</p>
+
+            <div className='mt-6 flex gap-3 justify-center lg:justify-end'>
+              {/* <button className="bg-amber-600 px-6 py-3 rounded-full w-max">Find out more</button> */}
+              <Link href='/membership' className="btn">Become a member</Link>
+            </div>
+
           </div>
 
-          <Image src="/event-gallery/gbmshot.png" alt="" width={800} height={700}/>
+          <Image className='mx-auto lg:mx-0' src="/event-gallery/gbmshot.png" alt="" width={700} height={700} />
         </div>
       </section>
 
