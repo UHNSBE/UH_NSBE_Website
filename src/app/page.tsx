@@ -130,38 +130,41 @@ export default function Home() {
       </section>
 
 
-      <section className="h-[80vh] flex justify-center items-center">
-        <div className="w-11/12 sm:w-10/12 mx-auto flex flex-col lg:flex-row justify-between gap-6">
+      <section className="py-24 xl:py-32 flex justify-center items-center w-11/12 mx-auto">
+        <div className="w-full xl:w-10/12 mx-auto flex flex-col lg:flex-row justify-between gap-6">
           <div className="w-full lg:w-7/12 flex flex-col justify-center">
             <h1 className="text-4xl mb-6">{`Don't miss out on our upcoming events`}</h1>
-          <p>{`Welcome to the University of Houston Chapter of the National Society of Black Engineers. Come out and enjoy yourself at any of our events! Each event we host is eligible for points. Points are used to determine a member's participation and factor into conferences, sponsorships, and scholarships.`}</p>
+            <p>{`Welcome to the University of Houston Chapter of the National Society of Black Engineers. Come out and enjoy yourself at any of our events! Each event we host is eligible for points. Points are used to determine a member's participation and factor into conferences, sponsorships, and scholarships.`}</p>
           </div>
 
-          <div className="text-2xl">
-            <iframe className="w-full h-96 lg:w-[42rem] lg:h-[32rem]" src="https://calendar.google.com/calendar/embed?height=500&wkst=1&ctz=America%2FChicago&bgcolor=%23ffffff&showTabs=0&showPrint=0&showTz=0&showTitle=0&src=dWhuc2JlLm9yZ19kc3JyOG1kYWQ2c2UxNHVrdTAwam1icjV2b0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23B39DDB" width="500" height="500"></iframe>
+          <div className="w-full lg:w-5/12 flex justify-center lg:justify-end">
+            <iframe className="w-full h-96 lg:w-[42rem] lg:h-[32rem] max-w-full object-contain"
+              src="https://calendar.google.com/calendar/embed?height=500&wkst=1&ctz=America%2FChicago&bgcolor=%23ffffff&showTabs=0&showPrint=0&showTz=0&showTitle=0&src=dWhuc2JlLm9yZ19kc3JyOG1kYWQ2c2UxNHVrdTAwam1icjV2b0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23B39DDB">
+            </iframe>
           </div>
         </div>
       </section>
 
-      <section className="h-[90vh] flex justify-center items-center w-11/12 mx-auto">
-        <div className="w-full lg:w-10/12 mx-auto flex flex-col lg:flex-row-reverse justify-between gap-6">
+      <section className="py-24 xl:py-32 flex justify-center items-center w-11/12 mx-auto">
+        <div className="w-full xl:w-10/12 mx-auto flex flex-col lg:flex-row-reverse justify-between gap-6">
           <div className="w-full lg:w-5/12 flex flex-col justify-center text-center lg:text-right">
-            <h1 className="text-4xl   mb-6">Join our community</h1>
-            <p>UH NSBE is more than just an organization, it’s a family!
-              Come learn more about what it means to be a part of the wonderful  NSBE community, otherwise known as the NSBEfam, at the University of Houston.</p>
-
-            <div className='mt-6 flex gap-3 justify-center lg:justify-end'>
-              {/* <button className="bg-amber-600 px-6 py-3 rounded-full w-max">Find out more</button> */}
+            <h1 className="text-4xl mb-6">Join our community</h1>
+            <p>
+              UH NSBE is more than just an organization, it’s a family! Come learn more about what it means to be a part of the wonderful NSBE community, otherwise known as the NSBEfam, at the University of Houston.
+            </p>
+            <div className="mt-6 flex gap-3 justify-center lg:justify-end">
               <Link href='/membership' className="btn">Become a member</Link>
             </div>
-
           </div>
 
-          <Image className='mx-auto lg:mx-0' src="/event-gallery/gbmshot.png" alt="" width={700} height={700} />
+          <div className="w-full lg:w-7/12 flex justify-center lg:justify-start">
+            <Image className="max-w-full h-auto object-contain" src="/event-gallery/gbmshot.png" alt="GBM event" width={700} height={700} />
+          </div>
         </div>
       </section>
 
-      <section className="h-[80vh] my-24 flex flex-col justify-center items-center">
+
+      <section className="my-24 flex flex-col justify-center items-center">
 
           <p className="underline mb-4">
             Contact Us

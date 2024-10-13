@@ -81,21 +81,21 @@ export default function page() {
                 </div>
             </section>
 
-            <section className="h-[90vh] flex justify-center items-center w-11/12 mx-auto">
-                <div className="w-full lg:w-10/12 mx-auto flex flex-col lg:flex-row-reverse justify-between gap-6">
+            <section className="py-24 xl:py-32 flex justify-center items-center w-11/12 mx-auto">
+                <div className="w-full xl:w-10/12 mx-auto flex flex-col lg:flex-row-reverse justify-between gap-6">
                     <div className="w-full lg:w-5/12 flex flex-col justify-center text-center lg:text-right">
-                        <h1 className="text-4xl   mb-6">Join our community</h1>
-                        <p>UH NSBE is more than just an organization, it’s a family!
-                            Come learn more about what it means to be a part of the wonderful  NSBE community, otherwise known as the NSBEfam, at the University of Houston.</p>
-                        
-                        <div className='mt-6 flex gap-3 justify-center lg:justify-end'>
-                            {/* <button className="bg-amber-600 px-6 py-3 rounded-full w-max">Find out more</button> */}
+                        <h1 className="text-4xl mb-6">Join our community</h1>
+                        <p>
+                            UH NSBE is more than just an organization, it’s a family! Come learn more about what it means to be a part of the wonderful NSBE community, otherwise known as the NSBEfam, at the University of Houston.
+                        </p>
+                        <div className="mt-6 flex gap-3 justify-center lg:justify-end">
                             <Link href='/membership' className="btn">Become a member</Link>
                         </div>
-                        
                     </div>
 
-                    <Image className='mx-auto lg:mx-0' src="/event-gallery/gbmshot.png" alt="" width={700} height={700} />
+                    <div className="w-full lg:w-7/12 flex justify-center lg:justify-start">
+                        <Image className="max-w-full h-auto object-contain" src="/event-gallery/gbmshot.png" alt="GBM event" width={700} height={700} />
+                    </div>
                 </div>
             </section>
         </>
