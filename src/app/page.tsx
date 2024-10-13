@@ -84,7 +84,7 @@ export default function Home() {
             <div className="p-4 flex-grow">
               <h3 className="text-left mb-2 bg-black p-2 w-max">Excel Academically</h3>
               <p className="text-left">
-                NSBE's main goal is to strive for black excellence. That includes hosting academic excellence focused events like study nights, mentorship program initiatives, and tutoring opportunities!
+                NSBE’s main goal is to strive for black excellence. That includes hosting academic excellence focused events like study nights, mentorship program initiatives, and tutoring opportunities!
               </p>
             </div>
           </div>

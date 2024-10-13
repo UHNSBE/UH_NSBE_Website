@@ -20,7 +20,7 @@ function TestimonialCard(props: any) {
         </div>
       </div>
       <blockquote className="text-lg font-medium leading-relaxed">
-        "{props.quote}"
+        {`"${props.quote}"`}
       </blockquote>
     </Card>
   )
