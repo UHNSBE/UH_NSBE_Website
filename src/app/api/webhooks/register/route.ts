@@ -66,7 +66,7 @@ export async function POST(request: NextRequest) {
     };
 
     try {
-        const response = await fetch('https://script.google.com/macros/s/AKfycbxb66pkTfQI0gpWQI3FCKuvtBtJpu9tPQV9ZPu3Beo1fJZuuo7vKRAhu9-sTdilPQ6p/exec', {
+        const response = await fetch('https://script.google.com/macros/s/AKfycby6o0nRe7h4hYnxtA0LN-INPckT8JdfFl3c2ak5gXAzaG6UEeZdPI7jKmRINdYw408v/exec', {
             redirect: 'follow',
             method: 'POST',
             headers: {
