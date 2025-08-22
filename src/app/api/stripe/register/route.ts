@@ -9,7 +9,7 @@ export async function POST(request: NextRequest) {
         const formData = await request.json();
 
         const checkoutSession: Stripe.Checkout.Session = await stripe.checkout.sessions.create({
-            payment_method_types: ['card', 'cashapp'],
+            payment_method_types: ['card'],
             line_items: [
                 {
                 price: 'price_1Q3MQsFlyqBu00S0fl20fCSa',
