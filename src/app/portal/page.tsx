@@ -313,6 +313,7 @@ export default function MembershipPortal() {
     }, 8000); // 8 seconds
 
     return () => clearInterval(interval); // Cleanup on unmount
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleTouchStart = (e: any) => {

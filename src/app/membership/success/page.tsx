@@ -65,7 +65,7 @@ export default function SuccessPage() {
               Congratulations <span className="font-bold text-amber-600">{session.metadata?.firstName} {session.metadata?.lastName}</span>!
             </p>
             <p className="text-lg text-gray-900 mb-6">
-              Your membership payment was successful and you're now officially part of the UH NSBE family.
+              Your membership payment was successful and you&apos;re now officially part of the UH NSBE family.
             </p>
           </div>
 
@@ -93,7 +93,7 @@ export default function SuccessPage() {
             <ul className="space-y-2 text-sm">
               <li className="flex items-start">
                 <span className="w-2 h-2 bg-amber-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                <span>You'll receive a confirmation email with additional membership information</span>
+                <span>You&apos;ll receive a confirmation email with additional membership information</span>
               </li>
               <li className="flex items-start">
                 <span className="w-2 h-2 bg-amber-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>

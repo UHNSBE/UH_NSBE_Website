@@ -48,7 +48,7 @@ export default function UHMembershipFormPage() {
   return (
     <div className="py-32 w-11/12 mx-auto max-w-3xl">
       <h1 className="text-5xl md:text-6xl text-center mb-10">University of Houston Chapter Membership</h1>
-      <p className="text-center mb-12 max-w-xl mx-auto">Fill out the form below to register. You'll be redirected to our secure Stripe checkout. After payment you'll get an on-site confirmation.</p>
+      <p className="text-center mb-12 max-w-xl mx-auto">Fill out the form below to register. You&apos;ll be redirected to our secure Stripe checkout. After payment you&apos;ll get an on-site confirmation.</p>
       <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
         <div className="grid md:grid-cols-2 gap-6">
           <label className="flex flex-col text-sm gap-1">First Name
