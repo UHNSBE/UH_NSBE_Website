@@ -1,74 +1,11 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
-import { loadStripe } from '@stripe/stripe-js';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useEffect } from 'react';
 
 export default function Page() {
-    const [showModal, setShowModal] = useState(false);
-
-    const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
-        uhId: '',
-        email: '',
-        major: '',
-        gender: 'Male',
-        classification: 'Freshman',
-        tShirtSize: 'S',
-        internationalStudent: 'No',
-        birthday: '',
-    });
-
-    const handleChange = (e: any) => {
-        const { name, value } = e.target;
-        setFormData((prevData) => ({ ...prevData, [name]: value }));
-      };
-    
-    const handleSubmit = async (e: any) => {
-        e.preventDefault();
-        
-
-        const stripe = await loadStripe(
-            process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY as string
-        );
-        if(!stripe){
-            return;
-        }
-        try {
-            const response = await axios.post('/api/stripe/register', formData);
-            const data = response.data;
-
-            if (!data.ok) throw new Error('Something went wrong');
-            await stripe.redirectToCheckout({
-                sessionId: data.result.id
-            });
-        } catch (error) {
-            console.log(error);
-        }
-    };
-
-    // Handler to toggle modal
-    const handleModal = () => {
-        setShowModal(!showModal);
-    };
-
-    useEffect(() => {
-        // Disable scrolling on body when modal is open
-        if (showModal) {
-          document.body.style.overflow = 'hidden';
-        } else {
-          document.body.style.overflow = 'auto';
-        }
-    
-        // Cleanup function to reset overflow style
-        return () => {
-          document.body.style.overflow = 'auto';
-        };
-      }, [showModal]);
-      
-    
+    // Ensure scroll always enabled (legacy modal removed)
+    useEffect(() => { document.body.style.overflow = 'auto'; }, []);
     return (
     <>
         <h1 className='text-6xl w-11/12 mx-auto md:text-7xl text-center pt-24  relative'>Become a Member</h1>
@@ -97,109 +34,16 @@ export default function Page() {
                                 <li>Resume included into resume bank sent to corporate partners</li>
                             </ol>
                         </div>
-                        <button className='text-left p-2 rounded-md bg-amber-600 flex justify-between mt-4' onClick={handleModal}>
+                        <Link href='/membership/uh' className='text-left p-2 rounded-md bg-amber-600 flex justify-between mt-4'>
                             <div>
                                 <p className='text-sm'>Register Now</p>
                                 <p>Fall & Spring Semester</p>
                             </div>
                             <h1 className='text-3xl flex items-center h-full'>$20</h1>
-                        </button>
+                        </Link>
                     </div>
                 </div>
-
-                {/* Modal for Local Membership Registration */}
-                {showModal && (
-                    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 z-50">
-                        <div className="bg-white rounded-lg h-full w-full md:h-[70vh] md:w-11/12 md:max-w-2xl overflow-y-auto md:overflow-y-visible text-black flex flex-col">
-                            <div className="flex justify-between items-center p-4 bg-neutral-800 text-white rounded-t-lg">
-                                <h2 className="text-xl font-bold">Local Membership Form</h2>
-                                <button
-                                    onClick={handleModal}
-                                    className="text-3xl font-bold text-gray-600 hover:text-red-600"
-                                >
-                                    &times;
-                                </button>
-                                
-                            </div>
-                            <div className="md:overflow-y-auto flex-1 p-4">
-                                <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-                                    <label className="flex flex-col">
-                                        First Name:
-                                        <input type="text" name="firstName" className="p-2 rounded-md border border-gray-300" placeholder="First Name" value={formData.firstName} onChange={handleChange} required/>
-                                    </label>
-
-                                    <label className="flex flex-col">
-                                        Last Name:
-                                        <input type="text" name="lastName" className="p-2 rounded-md border border-gray-300" placeholder="Last Name" value={formData.lastName} onChange={handleChange} required/>
-                                    </label>
-
-                                    <label className="flex flex-col">
-                                        UH ID:
-                                        <input type="text" name="uhId" className="p-2 rounded-md border border-gray-300" placeholder="UH ID" value={formData.uhId} onChange={handleChange} required/>
-                                    </label>
-
-                                    <label className="flex flex-col">
-                                        Email:
-                                        <input type="email" name="email" className="p-2 rounded-md border border-gray-300" placeholder="Email" value={formData.email} onChange={handleChange} required/>
-                                    </label>
-
-                                    <label className="flex flex-col">
-                                        Major:
-                                        <input type="text" name="major" className="p-2 rounded-md border border-gray-300" placeholder="Major" value={formData.major} onChange={handleChange} required/>
-                                    </label>
-
-                                    <label className="flex flex-col">
-                                        Gender:
-                                        <select name="gender" className="p-2 rounded-md border border-gray-300" value={formData.gender} onChange={handleChange} required>
-                                            <option value="Male">Male</option>
-                                            <option value="Female">Female</option>
-                                            <option value="Other">Other</option>
-                                        </select>
-                                    </label>
-
-                                    <label className="flex flex-col">
-                                        Classification:
-                                        <select name="classification" className="p-2 rounded-md border border-gray-300" value={formData.classification} onChange={handleChange} required>
-                                            <option value="Freshman">Freshman</option>
-                                            <option value="Sophomore">Sophomore</option>
-                                            <option value="Junior">Junior</option>
-                                            <option value="Senior">Senior</option>
-                                            <option value="Graduate">Graduate</option>
-                                        </select>
-                                    </label>
-
-                                    <label className="flex flex-col">
-                                        T-Shirt Size:
-                                        <select name="tShirtSize" className="p-2 rounded-md border border-gray-300" value={formData.tShirtSize} onChange={handleChange} required>
-                                            <option value="S">S</option>
-                                            <option value="M">M</option>
-                                            <option value="L">L</option>
-                                            <option value="XL">XL</option>
-                                        </select>
-                                    </label>
-
-                                    <label className="flex flex-col">
-                                        Are you an international student?:
-                                        <select name="internationalStudent" className="p-2 rounded-md border border-gray-300" value={formData.internationalStudent} onChange={handleChange} required>
-                                            <option value="No">No</option>
-                                            <option value="Yes">Yes</option>
-                                        </select>
-                                    </label>
-
-                                    <label className="flex flex-col">
-                                        Birthday:
-                                        <input type="date" name="birthday" className="p-2 rounded-md border border-gray-300" value={formData.birthday} onChange={handleChange} required/>
-                                    </label>
-
-                                    <button type="submit" className="p-3 bg-amber-600 text-white rounded-md mt-4 mb-24 md:mb-0">
-                                        Proceed to Payment
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
-                )}
+                {/* Local membership registration moved to /membership/uh */}
 
                 <div className='flex gap-4 w-full xl:w-6/12 p-4 mt-5 bg-black bg-opacity-75 rounded-xl'>
                     <div className='rounded-xl w-[300px] h-auto overflow-hidden relative hidden min-[600px]:block'>
