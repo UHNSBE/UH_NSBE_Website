@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
@@ -18,7 +18,7 @@ type SessionData = {
   }>
 };
 
-export default function SuccessPage() {
+function SuccessPageContent() {
   const params = useSearchParams();
   const sessionId = params.get('session_id');
   const [loading, setLoading] = useState(true);
@@ -139,5 +139,13 @@ export default function SuccessPage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function SuccessPage() {
+  return (
+    <Suspense fallback={<div className="pt-32 w-11/12 mx-auto max-w-3xl text-center">Loading...</div>}>
+      <SuccessPageContent />
+    </Suspense>
   );
 }
