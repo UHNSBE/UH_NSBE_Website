@@ -89,7 +89,7 @@ export default function SuccessPage() {
 
           {/* What's Next Card */}
           <div className="bg-amber-600/20 rounded-lg p-6">
-            <h2 className="text-xl font-semibold mb-4">What's Next?</h2>
+            <h2 className="text-xl font-semibold mb-4">What&apos;s Next?</h2>
             <ul className="space-y-2 text-sm">
               <li className="flex items-start">
                 <span className="w-2 h-2 bg-amber-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
