@@ -104,7 +104,7 @@ export default function UHMembershipFormPage() {
         <button disabled={submitting} type="submit" className="p-3 bg-amber-600 text-white rounded-md mt-4 disabled:opacity-60 disabled:cursor-not-allowed">
           {submitting ? 'Redirecting…' : 'Proceed to Secure Payment'}
         </button>
-        <p className="text-xs text-center text-gray-400 mt-4">You will be redirected to Stripe Checkout. All payments are secure.</p>
+        <p className="text-xs text-center text-gray-400 my-4">You will be redirected to Stripe Checkout. All payments are secure.</p>
       </form>
     </div>
   );
