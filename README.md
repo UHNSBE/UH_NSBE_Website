@@ -1,3 +1,7 @@
+# UH NSBE Website
+
+> Maintainers: see docs/MAINTAINERS.md for how to run, deploy, and make common updates.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
