@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 const images = [
+  {link: '/ceb-shoot/2025-2026/NSBECOVERPSD.jpg', mid: "center 69%"}, 
   {link: '/ceb-shoot/7-_DSC2786.jpg', mid: "center 51%"}, {link: '/event-gallery/IMG_6619.jpg', mid: "center 45%"}, {link:  '/event-gallery/IMG_6489.jpg', mid: "center 31%"}, {link: '/event-gallery/gbmshot.png', mid: "center center"}, 
 ];
 
@@ -12,7 +13,7 @@ export default function Slideshow() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImage((prevImage) => (prevImage + 1) % images.length);
-    }, 5000); // Change image every 5 seconds
+    }, 7000); // Change image every 7 seconds
 
     return () => clearInterval(timer);
   }, []);
