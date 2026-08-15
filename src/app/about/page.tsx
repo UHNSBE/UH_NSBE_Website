@@ -66,6 +66,9 @@ export default function page() {
             <section className='w-11/12 mx-auto py-32'>
                 <h2 className='text-5xl text-center mb-12  '>Our Mission</h2>
                 <p className='text-center w-11/12 sm:w-4/5 mx-auto text-base sm:text-lg'>The National Society of Black Engineers at University of Houston is to increase the number of culturally responsible Black Engineers who excel academically, succeed professionally and positively impact the community. At the University of Houston NSBE, we envision a world where Black Engineers are leaders in innovation and creators of positive change within their communities. Our organization strives to empower students with the tools, resources, and networks necessary to thrive in their academic and professional endeavors. We are committed to building a strong, supportive community that fosters excellence, collaboration, and leadership among our members. We call the motivation that pushes us to bring to fruition our mission, our <i className='font-bold '>NSBE Why</i>.</p>
+                <p className='text-center w-11/12 sm:w-4/5 mx-auto mt-6 text-base sm:text-lg font-semibold'>
+                    Membership is open to all University of Houston students.
+                </p>
             </section>
 
             <section className="w-11/12 mx-auto py-16">
