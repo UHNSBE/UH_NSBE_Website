@@ -90,7 +90,7 @@ export default function RootLayout({
         <main className="flex flex-col">
           {!isAppPath && (
             <div className="w-full">
-              <nav className="flex justify-between w-11/12 mx-auto py-12 relative">
+              <nav className="relative mx-auto flex w-11/12 max-w-6xl items-center justify-between py-8 sm:py-10">
                 <div className="text-3xl flex justify-center items-center">
                   <div className="w-40 md:w-48 h-auto"><Image className="invert" src="/NSBE-General-White.png" alt="NSBE LOGO" width={250} height={250}/></div>
                   <div className="w-12 md:w-16 h-auto border-l-2 border-black pl-2">
@@ -105,7 +105,13 @@ export default function RootLayout({
                 
                 {/* Hamburger Icon */}
                 <div className="lg:hidden flex items-center">
-                  <button onClick={() => setMenuOpen(!menuOpen)}>
+                  <button
+                    type="button"
+                    aria-label={menuOpen ? "Close menu" : "Open menu"}
+                    aria-expanded={menuOpen}
+                    onClick={() => setMenuOpen(!menuOpen)}
+                    className="rounded-lg p-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-600"
+                  >
                     {menuOpen ? (
                       <Icon icon="mdi:close" width={40} height={40} />
                     ) : (
@@ -133,21 +139,23 @@ export default function RootLayout({
 
                 {/* Mobile Menu */}
                 {menuOpen && (
-                  <div className="flex flex-col gap-4 text-neutral-400 bg-black p-8 absolute top-32 left-0 right-0 mx-auto lg:hidden z-20">
-                    {navItems.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className={
-                          pathname === item.href
-                            ? "text-white underline"
-                            : ""
-                        }
-                        onClick={() => setMenuOpen(false)}
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
+                  <div className="absolute left-0 right-0 top-[calc(100%+0.5rem)] z-20 overflow-hidden rounded-2xl bg-neutral-900 shadow-xl ring-1 ring-black/10 lg:hidden">
+                    <nav className="flex flex-col p-2">
+                      {navItems.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className={`rounded-xl px-4 py-3 text-lg transition-colors ${
+                            pathname === item.href
+                              ? "bg-white/10 font-semibold text-white"
+                              : "text-neutral-300 hover:bg-white/5 hover:text-white"
+                          }`}
+                          onClick={() => setMenuOpen(false)}
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </nav>
                   </div>
                 )}
               </nav>
