@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import TestimonialCarousel from '@/app/components/testimonial-carousel'
+import { Section, SectionHeading, Frame } from '@/components/layout'
 
 const founders = [
   'Edward Coleman',
@@ -39,18 +40,6 @@ const testimonials = [
   },
 ]
 
-function SectionHeading({ eyebrow, title }: { eyebrow: string; title: string }) {
-  return (
-    <div className="mb-10 sm:mb-12">
-      <p className="mb-4 text-center text-xs font-semibold uppercase tracking-[0.2em] text-amber-600">
-        {eyebrow}
-      </p>
-      <h2 className="text-center text-4xl sm:text-5xl">{title}</h2>
-      <span aria-hidden className="mx-auto mt-6 block h-px w-16 bg-amber-500" />
-    </div>
-  )
-}
-
 export default function Page() {
   return (
     <>
@@ -63,7 +52,7 @@ export default function Page() {
       </header>
 
       {/* Chicago Six */}
-      <section className="mx-auto w-11/12 max-w-6xl py-14 sm:py-20">
+      <Section>
         <div className="grid items-center gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="text-center lg:text-left">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-600">
@@ -93,7 +82,7 @@ export default function Page() {
           </div>
 
           <figure>
-            <div className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-black/5 sm:p-6">
+            <Frame>
               <Image
                 className="h-auto w-full rounded-lg"
                 alt="NSBE founders Dr. Arthur J. Bond and the Chicago Six"
@@ -101,16 +90,16 @@ export default function Page() {
                 height={500}
                 width={700}
               />
-            </div>
+            </Frame>
             <figcaption className="mt-4 text-center text-xs text-neutral-500">
               Dr. Arthur J. Bond and the Chicago Six, Purdue University, 1975.
             </figcaption>
           </figure>
         </div>
-      </section>
+      </Section>
 
       {/* Mission */}
-      <section className="mx-auto w-11/12 max-w-6xl py-14 sm:py-20">
+      <Section>
         <SectionHeading eyebrow="Our purpose" title="Our Mission" />
 
         <p className="font-display mx-auto max-w-4xl text-center text-2xl leading-snug sm:text-3xl lg:text-4xl">
@@ -143,10 +132,10 @@ export default function Page() {
         <p className="mx-auto mt-10 w-max max-w-full border-l-2 border-amber-500 pl-4 text-base font-semibold sm:text-lg">
           Membership is open to all University of Houston students.
         </p>
-      </section>
+      </Section>
 
       {/* Why NSBE */}
-      <section className="mx-auto w-11/12 max-w-6xl py-14 sm:py-20">
+      <Section>
         <SectionHeading eyebrow="In their words" title="Why NSBE?" />
 
         <p className="mx-auto mb-10 max-w-2xl text-center text-neutral-700 sm:mb-12">
@@ -154,10 +143,10 @@ export default function Page() {
         </p>
 
         <TestimonialCarousel testimonials={testimonials} />
-      </section>
+      </Section>
 
       {/* Join */}
-      <section className="mx-auto w-11/12 max-w-6xl py-14 sm:py-20">
+      <Section>
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <div className="order-2 lg:order-1">
             <Image
@@ -181,7 +170,7 @@ export default function Page() {
             </Link>
           </div>
         </div>
-      </section>
+      </Section>
     </>
   )
 }
