@@ -18,7 +18,20 @@ const config: Config = {
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
   		},
+  		maxWidth: {
+  			content: '72rem'
+  		},
   		colors: {
+  			/* Brand + pillar accents, matched in value so they read as one set. */
+  			brand: {
+  				DEFAULT: '#d97706',
+  				soft: '#f59e0b'
+  			},
+  			pillar: {
+  				academic: '#B87A1C',
+  				professional: '#9E4540',
+  				community: '#5D7734'
+  			},
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

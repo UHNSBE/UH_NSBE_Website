@@ -1,126 +1,249 @@
 'use client'
-import Image from 'next/image';
-import Link from 'next/link';
-import { useState } from "react";
+import Image from 'next/image'
+import { useState } from 'react'
+import { Section, SectionHeading, Frame } from '@/components/layout'
+
+type PackageType = 'Bronze' | 'Silver' | 'Gold' | 'Platinum' | 'Vanguard'
+
+const packages: Record<PackageType, { title: string; amount: string; benefits: string[] }> = {
+  Bronze: {
+    title: 'Bronze Sponsor',
+    amount: '$500 – $1,999',
+    benefits: ['Access to UH NSBE resume bank', 'Invitation to Winter & Spring banquet'],
+  },
+  Silver: {
+    title: 'Silver Sponsor',
+    amount: '$2,000 – $3,999',
+    benefits: [
+      'Host ONE info session or professional workshop',
+      'Feature job openings in 2 newsletters',
+      'Benefits of Bronze level',
+    ],
+  },
+  Gold: {
+    title: 'Gold Sponsor',
+    amount: '$4,000 – $5,999',
+    benefits: [
+      'Company logo on chapter website',
+      'Present at ONE General Body Meeting',
+      'Benefits of Silver & Bronze levels',
+    ],
+  },
+  Platinum: {
+    title: 'Platinum Sponsor',
+    amount: '$6,000 – $7,499',
+    benefits: [
+      'Company logo on chapter T-shirt',
+      'Feature job openings on NSBE social media',
+      'Benefits of Gold, Silver & Bronze levels',
+    ],
+  },
+  Vanguard: {
+    title: 'Vanguard Sponsor',
+    amount: '$7,500 and above',
+    benefits: [
+      'Eligible for Sponsor of the Year Award',
+      'Scholarship in company’s name',
+      'Recognition at chapter events',
+      'Benefits of Platinum, Gold, Silver & Bronze levels',
+    ],
+  },
+}
+
+const partners = [
+  { src: '/partners/albemarle.webp', name: 'Albemarle' },
+  { src: '/partners/black_and_veatch.png', name: 'Black & Veatch' },
+  { src: '/partners/BP.jpeg', name: 'BP' },
+  { src: '/partners/kiewit.jpg', name: 'Kiewit' },
+  { src: '/partners/linde.jpeg', name: 'Linde' },
+  { src: '/partners/technipfmc.jpg', name: 'TechnipFMC' },
+  { src: '/partners/visa.jpg', name: 'Visa' },
+]
 
 export default function Page() {
-  // Explicitly define the valid package types as a union of string literals
-  type PackageType = 'Bronze' | 'Silver' | 'Gold' | 'Platinum' | 'Vanguard';
-
-  // Define the structure of the packages object
-  const packages: Record<PackageType, { title: string; amount: string; benefits: string[] }> = {
-    Bronze: {
-      title: "Bronze Sponsor",
-      amount: "$500 - $1999",
-      benefits: ["Access to UH NSBE resume bank", "Invitation to Winter & Spring banquet"],
-    },
-    Silver: {
-      title: "Silver Sponsor",
-      amount: "$2000 - $3999",
-      benefits: ["Host ONE info session or professional workshop", "Feature job openings in 2 newsletters", "Benefits of Bronze level"],
-    },
-    Gold: {
-      title: "Gold Sponsor",
-      amount: "$4000 - $5999",
-      benefits: ["Company logo on Chapter website", "Present at ONE General Body Meeting", "Benefits of Silver & Bronze levels"],
-    },
-    Platinum: {
-      title: "Platinum Sponsor",
-      amount: "$6000 - $7499",
-      benefits: ["Company logo on Chapter T-shirt", "Feature job openings on NSBE social media", "Benefits of Gold, Silver & Bronze levels"],
-    },
-    Vanguard: {
-      title: "Vanguard Sponsor",
-      amount: "$7500 and above",
-      benefits: ["Eligible for Sponsor of the Year Award", "Scholarship in company’s name", "Recognition at Chapter events", "Benefits of Platinum, Gold, Silver & Bronze levels"],
-    },
-  };
-
-  // Use the PackageType to set the type for selectedPackage
-  const [selectedPackage, setSelectedPackage] = useState<PackageType>("Bronze");
+  const [selectedPackage, setSelectedPackage] = useState<PackageType>('Bronze')
+  const active = packages[selectedPackage]
 
   return (
-    <div>
-      <h1 className='text-6xl w-11/12 mx-auto md:text-7xl text-center pt-24  relative'>Partner with UH NSBE</h1>
+    <>
+      <header className="mx-auto w-11/12 max-w-6xl pb-6 pt-14 text-center sm:pb-8 sm:pt-20">
+        <h1 className="text-6xl md:text-7xl">Partner with UH NSBE</h1>
+        <p className="mx-auto mt-6 max-w-2xl text-neutral-700">
+          A partnership is far greater than a financial commitment. It helps build a solid
+          foundation for engineers at the University of Houston.
+        </p>
+      </header>
 
-      <section className='pt-15 mx-auto w-11/12 my-24'>
-        <p className='text-center w-full sm:w-8/12 mx-auto mb-3'>We would love for you to partner with the University of Houston chapter of the National Society of Black Engineers. A partnership is far greater than a financial commitment; it will help to build a solid foundation for engineers at  the University of Houston.</p>
-        <p className='text-center w-full sm:w-8/12 mx-auto mb-3'>If you are interested in partnering with the University of Houston National Society of Black Engineers Chapter, please complete the <a href='/files/PartnershipPacket_2024-25.pdf' target="_blank" rel="noopener noreferrer" className='text-amber-800 underline'>Sponsorship Packet</a>.</p>
-        <p className='text-center w-full sm:w-8/12 mx-auto mb-8'>Please consider contributing to the University of Houston chapter of  NSBE. Your contributions support programming for our members and help us  send talented young engineers to Regional and National Conferences  where they can interact with industry professionals and secure some  internships. Any amount is appreciated!</p>
-        <div className='text-center w-full sm:w-8/12 mx-auto mb-3 italic text-neutral-700'>
-          <p className='text-sm'>If you have questions or comments regarding the Sponsorship Packet, please email our treasurer at treasurer@uhnsbe.org. Thank you!</p>
-          <p className='text-sm'>Please note that UH NSBE is a 501(c)3 nonprofit organization and donors will be given an acknowledgement receipt for tax purposes.</p>
-        </div>
-        
-      </section>
+      {/* Intro */}
+      <Section space="sm">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-neutral-700">
+            If you are interested in partnering with our chapter, please complete the{' '}
+            <a
+              href="/files/PartnershipPacket_2024-25.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-amber-700 underline underline-offset-2 hover:text-amber-800"
+            >
+              Sponsorship Packet
+            </a>
+            . Your contributions support programming for our members and help send talented young
+            engineers to Regional and National Conferences, where they meet industry professionals
+            and secure internships. Any amount is appreciated.
+          </p>
 
-      <div className="flex flex-col md:flex-row py-20 mx-auto w-11/12 justify-center">
-        {/* Sponsorship Package Section */}
-        <div className="w-auto px-6 md:border-r-2 md:mr-6 md:border-black">
-          <h1 className="text-4xl mb-6 text-center">Sponsorship Packages</h1>
-          <div className="tabs mb-6 text-center">
-            {Object.keys(packages).map((pkg) => (
-              <button
-                key={pkg}
-                className={`px-4 py-2 m-2 ${selectedPackage === pkg ? "bg-amber-600 text-white" : "bg-gray-200"}`}
-                onClick={() => setSelectedPackage(pkg as PackageType)} // Cast to PackageType
-              >
-                {pkg} Sponsor
-              </button>
-            ))}
-          </div>
-
-          <div className="bg-white p-8 shadow-lg flex flex-col h-72">
-            <h2 className="text-2xl mb-4">{packages[selectedPackage].title}</h2>
-            <p className="text-left">{packages[selectedPackage].amount}</p>
-            <ul className="text-left list-disc list-inside">
-              {packages[selectedPackage].benefits.map((benefit, index) => (
-                <li key={index}>{benefit}</li>
-              ))}
-            </ul>
-            {/* <button className="btn mx-auto mt-auto">Sponsor Now</button> */}
+          <div className="mx-auto mt-8 max-w-2xl border-t border-neutral-300 pt-6 text-sm italic text-neutral-600">
+            <p>
+              Questions about the Sponsorship Packet? Email our treasurer at treasurer@uhnsbe.org.
+            </p>
+            <p className="mt-2">
+              UH NSBE is a 501(c)(3) nonprofit organization; donors receive an acknowledgement
+              receipt for tax purposes.
+            </p>
           </div>
         </div>
+      </Section>
 
-        <section className="w-full md:w-4/12 mt-24 md:mt-0">
-          <h1 className="text-4xl mb-8 text-center md:mt-0">Payment Methods</h1>
+      {/* Packages + payment */}
+      <Section>
+        <div className="grid gap-10 lg:grid-cols-5 lg:gap-16">
+          {/* Packages */}
+          <div className="lg:col-span-3">
+            <h2 className="text-center text-3xl sm:text-4xl lg:text-left">Sponsorship Packages</h2>
+            <span aria-hidden className="mx-auto mt-5 block h-px w-12 bg-amber-500 lg:mx-0" />
 
-          <div className='flex justify-center gap-3'>
-              <a className="btn" href='/files/PartnershipPacket_2024-25.pdf' target="_blank" rel="noopener noreferrer">Sponsor</a>
-              <div className='border-l-2 border-black'></div>
-              <a className="btn" href={process.env.NEXT_PUBLIC_STRIPE_DONATE_LINK}>Donate</a>
+            <div
+              role="tablist"
+              aria-label="Sponsorship levels"
+              className="mt-8 flex flex-wrap justify-center gap-2 lg:justify-start"
+            >
+              {(Object.keys(packages) as PackageType[]).map((pkg) => {
+                const selected = selectedPackage === pkg
+                return (
+                  <button
+                    key={pkg}
+                    type="button"
+                    role="tab"
+                    aria-selected={selected}
+                    onClick={() => setSelectedPackage(pkg)}
+                    className={`rounded-full px-4 py-2 text-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 focus-visible:ring-offset-2 focus-visible:ring-offset-[#e6e6e6] ${
+                      selected
+                        ? 'bg-amber-600 font-semibold text-white'
+                        : 'bg-white text-neutral-700 ring-1 ring-black/5 hover:text-black'
+                    }`}
+                  >
+                    {pkg}
+                  </button>
+                )
+              })}
             </div>
 
-          <div className="w-11/12 mx-auto">
-            <p className='mt-4 font-semibold'>We accept the following digital payment methods:</p>
-            <ul className="list-disc list-inside">
-              <li className='mb-1'>Paypal: finance@uhnsbe.org</li>
-              <li className='mb-1'>CashApp: $UHNSBE</li>
-              <li className='mb-1'>Credit/Debit Cards</li>
-            </ul>
-            <p className='mt-6 font-semibold'>For Payment by Check:</p>
-            <ul className="list-disc list-inside">
-              <li className='mb-1'>All checks must be made payable to <i>National Society of Black Engineers at University of Houston</i></li>
-              <li className='mb-1'>Campus Address: University of Houston National Society of Black Engineers | 4464 University Drive Commons Desk Mailbox #360 | Houston, TX 77204</li>
-            </ul>
+            {/* Every level renders into one grid cell so the card never changes height */}
+            <div className="mt-6 grid rounded-2xl bg-white p-6 shadow-sm ring-1 ring-black/5 sm:p-8">
+              {(Object.keys(packages) as PackageType[]).map((pkg) => {
+                const shown = pkg === selectedPackage
+                const data = packages[pkg]
+                return (
+                  <div
+                    key={pkg}
+                    aria-hidden={!shown}
+                    className={`col-start-1 row-start-1 ${shown ? '' : 'invisible'}`}
+                  >
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-600">
+                      {data.amount}
+                    </p>
+                    <h3 className="mt-3 text-2xl">{data.title}</h3>
+                    <ul className="mt-5 flex flex-col gap-3">
+                      {data.benefits.map((benefit) => (
+                        <li key={benefit} className="flex gap-3 text-neutral-700">
+                          <span
+                            aria-hidden
+                            className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-500"
+                          />
+                          <span>{benefit}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )
+              })}
+            </div>
           </div>
-        </section>
-      </div>
 
-      {/* Current Partners Section */}
-      <section className="py-20 text-center">
-        <h1 className="text-4xl mb-12">Our Current Partners</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-11/12 mx-auto items-center">
-          <Image className='mx-auto w-auto h-52' src="/partners/albemarle.webp" alt="Partner 1" width={200} height={100} />
-          <Image className='mx-auto w-auto h-52' src="/partners/black_and_veatch.png" alt="Partner 2" width={200} height={100} />
-          <Image className='mx-auto w-full h-auto' src="/partners/BP.jpeg" alt="Partner 3" width={200} height={100} />
-          <Image className='mx-auto w-72 h-auto' src="/partners/kiewit.jpg" alt="Partner 4" width={200} height={100} />
-          <Image className='mx-auto w-72 h-auto' src="/partners/linde.jpeg" alt="Partner 5" width={200} height={100} />
-          <Image className='mx-auto w-72 h-auto' src="/partners/technipfmc.jpg" alt="Partner 6" width={200} height={100} />
-          <Image className='mx-auto w-72 h-auto' src="/partners/visa.jpg" alt="Partner 7" width={200} height={100} />
+          {/* Payment */}
+          <div className="lg:col-span-2">
+            <h2 className="text-center text-3xl sm:text-4xl lg:text-left">Payment Methods</h2>
+            <span aria-hidden className="mx-auto mt-5 block h-px w-12 bg-amber-500 lg:mx-0" />
+
+            <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
+              <a
+                className="btn"
+                href="/files/PartnershipPacket_2024-25.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Sponsor
+              </a>
+              <a className="btn" href={process.env.NEXT_PUBLIC_STRIPE_DONATE_LINK}>
+                Donate
+              </a>
+            </div>
+
+            <div className="mt-8 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-black/5">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-600">
+                Digital payments
+              </p>
+              <ul className="mt-4 flex flex-col gap-2 text-neutral-700">
+                <li>PayPal: finance@uhnsbe.org</li>
+                <li>CashApp: $UHNSBE</li>
+                <li>Credit / debit cards</li>
+              </ul>
+
+              <p className="mt-6 border-t border-neutral-200 pt-6 text-xs font-semibold uppercase tracking-[0.2em] text-amber-600">
+                By check
+              </p>
+              <ul className="mt-4 flex flex-col gap-3 text-sm text-neutral-700">
+                <li>
+                  Make checks payable to{' '}
+                  <i>National Society of Black Engineers at University of Houston</i>
+                </li>
+                <li>
+                  University of Houston NSBE
+                  <br />
+                  4464 University Drive
+                  <br />
+                  Commons Desk Mailbox #360
+                  <br />
+                  Houston, TX 77204
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </section>
+      </Section>
 
-    </div>
-  );
-};
+      {/* Partners */}
+      <Section>
+        <SectionHeading eyebrow="Thank you" title="Our Current Partners" />
+
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 lg:grid-cols-4">
+          {partners.map((partner) => (
+            <div
+              key={partner.name}
+              className="flex h-28 items-center justify-center rounded-2xl bg-white p-5 shadow-sm ring-1 ring-black/5 sm:h-32 sm:p-6"
+            >
+              <Image
+                src={partner.src}
+                alt={partner.name}
+                width={200}
+                height={100}
+                quality={90}
+                className="h-full w-full object-contain"
+              />
+            </div>
+          ))}
+        </div>
+      </Section>
+    </>
+  )
+}
