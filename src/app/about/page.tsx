@@ -1,107 +1,187 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import TestimonialCarousel from '@/app/components/testimonial-carousel'
 
+const founders = [
+  'Edward Coleman',
+  'Anthony Harris',
+  'Brian Harris',
+  'Stanley L. Kirtley',
+  'John W. Logan Jr.',
+  'George Smith',
+]
 
-import { Card } from "@/components/ui/card"
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
+const testimonials = [
+  {
+    name: 'Temilolu Ojofeitimi',
+    position: 'President ‘26 - ’27',
+    quote: `NSBE is more than an organization to me, it is a community where Black engineers are empowered to recognize their potential, create opportunities for one another, and succeed together. As president, my goal is to lead with service and leave every member better than I found them.`,
+    image: '/testimonials/temi.png',
+  },
+  {
+    name: 'Aisha Fatusi',
+    position: 'Vice Chair ‘26 - ’27',
+    quote: `Time and time again you have to remind the world who you are. That only becomes difficult if you forget.`,
+    image: '/testimonials/aisha.jpg',
+  },
+  {
+    name: 'A.J. Ncho',
+    position: 'Parliamentarian ‘26 - ’27',
+    quote: `Would you believe in what you believe in if you were the only one who believed it?`,
+    image: '/testimonials/aj.jpg',
+  },
+  {
+    name: `Trey De'De'`,
+    position: 'Programs Chair ‘26 - ’27',
+    quote: `Leadership is planting a tree that you'll never sit under the shade of.`,
+    image: '/testimonials/trey.jpg',
+  },
+]
 
-function TestimonialCard(props: any) {
+function SectionHeading({ eyebrow, title }: { eyebrow: string; title: string }) {
   return (
-    <Card className="w-full max-w-md p-8 grid gap-6 bg-opacity-55 bg-gradient-to-b from-amber-800 to-amber-500 text-white text-center">
-      <div className="flex flex-col items-center gap-4">
-        <Avatar className='!h-52 !w-52 mb-4'>
-          <AvatarImage src={props.image} />
-          <AvatarFallback>JD</AvatarFallback>
-        </Avatar>
-        <div>
-          <h3 className="text-2xl font-semibold">{props.name}</h3>
-          <p className="text-white opacity-75">{props.position}</p>
-        </div>
-      </div>
-      <blockquote className="text-lg font-medium leading-relaxed">
-        {`"${props.quote}"`}
-      </blockquote>
-    </Card>
+    <div className="mb-10 sm:mb-12">
+      <p className="mb-4 text-center text-xs font-semibold uppercase tracking-[0.2em] text-amber-600">
+        {eyebrow}
+      </p>
+      <h2 className="text-center text-4xl sm:text-5xl">{title}</h2>
+      <span aria-hidden className="mx-auto mt-6 block h-px w-16 bg-amber-500" />
+    </div>
   )
 }
 
-export default function page() {
-    const testimonials = [
-        {
-          name: "Sydney Blakely",
-          position: "Senator ‘23 - ’24",
-          quote: `Why NSBE?... Because I found a community of like-minded engineering students!`,
-          image: "/testimonials/sydney.jpg"
-        },
-        {
-          name: "Micah Le-Masakela",
-          position: "Chair ‘23 - ’24",
-          quote: `The first time I felt seen not only as a black student but a woman pursuing a STEM degree was by joining NSBE. They believed in me before I even saw my potential as a leader.`,
-          image: "/testimonials/micah.jpg"
-        },
-        {
-          name: "Evan Sherman",
-          position: "Financial Advisor '23 - '24",
-          quote: `Why NSBE?... I did better in my classes by making friends in UH-NSBE.`,
-          image: "/testimonials/evan.jpg"
-        }
-      ];
+export default function Page() {
+  return (
+    <>
+      {/* Hero */}
+      <header className="mx-auto w-11/12 max-w-6xl pb-6 pt-14 text-center sm:pb-8 sm:pt-20">
+        <h1 className="text-6xl md:text-7xl">All About NSBE</h1>
+        <p className="mx-auto mt-6 max-w-2xl text-neutral-600">
+          Where we come from, what we are working toward, and why our members keep showing up.
+        </p>
+      </header>
 
-      
-    return (
-        <>
-            <h1 className='text-6xl md:text-7xl text-center py-16 sm:py-24   relative'>All About NSBE</h1>
+      {/* Chicago Six */}
+      <section className="mx-auto w-11/12 max-w-6xl py-14 sm:py-20">
+        <div className="grid items-center gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="text-center lg:text-left">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-600">
+              Founded 1974
+            </p>
+            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-[2.75rem] lg:leading-tight">
+              Six engineering students at Purdue started all of this.
+            </h2>
+            <p className="mx-auto mt-6 max-w-prose text-neutral-700 lg:mx-0">
+              The National Society of Black Engineers was founded in 1974 by six students who
+              refused to be the only ones in the room. They are known as the “Chicago Six,” and
+              every chapter since — ours included — traces back to them.
+            </p>
 
-            <section className="chicagosix w-11/12 mx-auto pt-12ds py-16 sm:py-28">
-                <div className='flex flex-col-reverse xl:flex-row w-10/12 mx-auto items-center gap-12'>
-                    <div className='flex flex-col gap-12'>
-                        <p className='text-2xl md:text-3xl text-center'>The National Society of Black Engineers was founded in 1974 by 6 engineering students: <span className='italic font-bold text-amber-500'>Edward Coleman, Anthony Harris, Brian Harris, Stanley L. Kirtley, John W. Logan Jr., and George Smith</span>, known as the “Chicago Six” at Purdue University.</p>
-                        <Link href="https://nsbe.org/home/about/"><button className='btn !w-full !rounded-lg'>Learn More</button></Link>
-                    </div>
-                    <Image className='w-full sm:w-96 sm:h-96 lg:w-[700px] lg:h-[500px]' alt="Founding NSBE Members - Chicago Six" src="/event-gallery/chicagosix.jpg" height={500} width={500}/>
-                </div>
-            </section>
-            
-            <section className='w-11/12 mx-auto py-32'>
-                <h2 className='text-5xl text-center mb-12  '>Our Mission</h2>
-                <p className='text-center w-11/12 sm:w-4/5 mx-auto text-base sm:text-lg'>The National Society of Black Engineers at University of Houston is to increase the number of culturally responsible Black Engineers who excel academically, succeed professionally and positively impact the community. At the University of Houston NSBE, we envision a world where Black Engineers are leaders in innovation and creators of positive change within their communities. Our organization strives to empower students with the tools, resources, and networks necessary to thrive in their academic and professional endeavors. We are committed to building a strong, supportive community that fosters excellence, collaboration, and leadership among our members. We call the motivation that pushes us to bring to fruition our mission, our <i className='font-bold '>NSBE Why</i>.</p>
-                <p className='text-center w-11/12 sm:w-4/5 mx-auto mt-6 text-base sm:text-lg font-semibold'>
-                    Membership is open to all University of Houston students.
-                </p>
-            </section>
+            <ul className="mx-auto mt-6 grid w-max grid-cols-1 gap-x-8 gap-y-2.5 border-t border-neutral-300 pt-6 sm:mt-8 sm:gap-y-3 sm:pt-8 lg:mx-0 lg:w-auto lg:grid-cols-2">
+              {founders.map((founder) => (
+                <li key={founder} className="flex items-baseline gap-3 text-left text-sm sm:text-base">
+                  <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full bg-amber-500" />
+                  <span className="font-medium">{founder}</span>
+                </li>
+              ))}
+            </ul>
 
-            <section className="w-11/12 mx-auto py-16">
-                <h2 className="text-5xl text-center mb-12  ">Why NSBE?</h2>
-                <p className="text-center w-11/12 sm:w-3/5 mx-auto text-base sm:text-lg mb-16">
-                {`At our chapter, we stay motivated to succeed in engineering in black excellence by having a deep understanding of our "Why NSBE". Discover what our members have to say about their experiences with NSBE at the University of Houston.`}
-                </p>
+            <Link href="https://nsbe.org/home/about/" className="btn mt-8 sm:mt-10">
+              Learn more about NSBE
+            </Link>
+          </div>
 
-                <div className="flex flex-col items-center gap-12 lg:flex-row lg:justify-center">
-                    {testimonials.map((testimonial, index) => (
-                        <TestimonialCard name={testimonial.name} position={testimonial.position} quote={testimonial.quote} image={testimonial.image} key={index}></TestimonialCard>
-                    ))}
-                </div>
-            </section>
+          <figure>
+            <div className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-black/5 sm:p-6">
+              <Image
+                className="h-auto w-full rounded-lg"
+                alt="NSBE founders Dr. Arthur J. Bond and the Chicago Six"
+                src="/event-gallery/chicagosix.jpg"
+                height={500}
+                width={700}
+              />
+            </div>
+            <figcaption className="mt-4 text-center text-xs text-neutral-500">
+              Dr. Arthur J. Bond and the Chicago Six, Purdue University, 1975.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
 
-            <section className="py-24 xl:py-32 flex justify-center items-center w-11/12 mx-auto">
-                <div className="w-full xl:w-10/12 mx-auto flex flex-col lg:flex-row-reverse justify-between gap-6">
-                    <div className="w-full lg:w-5/12 flex flex-col justify-center text-center lg:text-right">
-                        <h1 className="text-4xl mb-6">Join our community</h1>
-                        <p>
-                            UH NSBE is more than just an organization, it’s a family! Come learn more about what it means to be a part of the wonderful NSBE community, otherwise known as the NSBEfam, at the University of Houston.
-                        </p>
-                        <div className="mt-6 flex gap-3 justify-center lg:justify-end">
-                            <Link href='/membership' className="btn">Become a member</Link>
-                        </div>
-                    </div>
+      {/* Mission */}
+      <section className="mx-auto w-11/12 max-w-6xl py-14 sm:py-20">
+        <SectionHeading eyebrow="Our purpose" title="Our Mission" />
 
-                    <div className="w-full lg:w-7/12 flex justify-center lg:justify-start">
-                        <Image className="max-w-full h-auto object-contain" src="/event-gallery/gbmshot.png" alt="GBM event" width={700} height={700} />
-                    </div>
-                </div>
-            </section>
-        </>
-    )
-  }
-  
+        <p className="font-display mx-auto max-w-4xl text-center text-2xl leading-snug sm:text-3xl lg:text-4xl">
+          To increase the number of culturally responsible Black engineers who excel academically,
+          succeed professionally, and positively impact the community.
+        </p>
+
+        <div className="mx-auto mt-10 grid max-w-5xl gap-8 border-t border-neutral-300 pt-10 sm:grid-cols-2 sm:gap-14">
+          <div className="text-center sm:text-left">
+            <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-600">
+              What we envision
+            </h3>
+            <p className="mx-auto mt-4 max-w-prose text-neutral-700 sm:mx-0">
+              A world where Black engineers are leaders in innovation and creators of positive
+              change within their communities.
+            </p>
+          </div>
+          <div className="text-center sm:text-left">
+            <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-600">
+              What we do about it
+            </h3>
+            <p className="mx-auto mt-4 max-w-prose text-neutral-700 sm:mx-0">
+              We give students the tools, resources, and networks to thrive academically and
+              professionally, and we build a community that makes excellence a shared habit. The
+              motivation behind that work is what we call our <i className="font-bold">NSBE Why</i>.
+            </p>
+          </div>
+        </div>
+
+        <p className="mx-auto mt-10 w-max max-w-full border-l-2 border-amber-500 pl-4 text-base font-semibold sm:text-lg">
+          Membership is open to all University of Houston students.
+        </p>
+      </section>
+
+      {/* Why NSBE */}
+      <section className="mx-auto w-11/12 max-w-6xl py-14 sm:py-20">
+        <SectionHeading eyebrow="In their words" title="Why NSBE?" />
+
+        <p className="mx-auto mb-10 max-w-2xl text-center text-neutral-700 sm:mb-12">
+          {`We stay motivated by having a deep understanding of our "Why NSBE." Here is what this year's officers have to say about theirs.`}
+        </p>
+
+        <TestimonialCarousel testimonials={testimonials} />
+      </section>
+
+      {/* Join */}
+      <section className="mx-auto w-11/12 max-w-6xl py-14 sm:py-20">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          <div className="order-2 lg:order-1">
+            <Image
+              className="h-auto w-full rounded-2xl object-cover"
+              src="/event-gallery/gbmshot.png"
+              alt="UH NSBE general body meeting"
+              width={700}
+              height={700}
+            />
+          </div>
+
+          <div className="order-1 text-center lg:order-2 lg:text-left">
+            <h2 className="text-4xl sm:text-5xl">Join our community</h2>
+            <span aria-hidden className="mx-auto mt-6 block h-px w-16 bg-amber-500 lg:mx-0" />
+            <p className="mx-auto mt-6 max-w-prose text-neutral-700 lg:mx-0">
+              UH NSBE is more than just an organization, it’s a family. Come learn what it means to
+              be part of the NSBEfam at the University of Houston.
+            </p>
+            <Link href="/membership" className="btn mt-8">
+              Become a member
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
+  )
+}

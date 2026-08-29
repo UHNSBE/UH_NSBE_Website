@@ -9,6 +9,9 @@ export default function Page() {
     return (
     <>
         <h1 className='text-6xl w-11/12 mx-auto md:text-7xl text-center pt-24  relative'>Become a Member</h1>
+        <p className='text-center w-11/12 sm:w-4/5 mx-auto mt-6 text-base sm:text-lg font-semibold'>
+            Membership is open to all University of Houston students.
+        </p>
 
         <section className='pt-15 mx-auto w-11/12 my-24'>
             <h2 className="text-4xl  my-6 text-center">Steps to Membership</h2>
