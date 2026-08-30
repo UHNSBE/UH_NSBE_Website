@@ -27,6 +27,12 @@ const testimonials = [
     image: '/testimonials/aisha.jpg',
   },
   {
+    name: 'Ronia Frempong',
+    position: 'Secretary ‘26 - ’27',
+    quote: `Doubt kills more dreams than failure ever will.`,
+    image: '/testimonials/ronia.jpg',
+  },
+  {
     name: 'A.J. Ncho',
     position: 'Parliamentarian ‘26 - ’27',
     quote: `Would you believe in what you believe in if you were the only one who believed it?`,
