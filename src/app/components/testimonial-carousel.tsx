@@ -119,7 +119,7 @@ export default function TestimonialCarousel({ testimonials }: { testimonials: Te
         role="tablist"
         aria-label="Officer reflections"
         onKeyDown={onKeyDown}
-        className="mt-10 grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-4 sm:gap-x-8"
+        className="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-6"
       >
         {testimonials.map((testimonial, tabIndex) => {
           const selected = tabIndex === index
@@ -131,7 +131,7 @@ export default function TestimonialCarousel({ testimonials }: { testimonials: Te
               aria-selected={selected}
               tabIndex={selected ? 0 : -1}
               onClick={() => goTo(tabIndex)}
-              className="group text-center focus:outline-none sm:text-left focus-visible:ring-2 focus-visible:ring-amber-600 focus-visible:ring-offset-4 focus-visible:ring-offset-[#e6e6e6]"
+              className="group w-[calc(50%-0.75rem)] text-center focus:outline-none sm:w-36 sm:text-left lg:w-44 focus-visible:ring-2 focus-visible:ring-amber-600 focus-visible:ring-offset-4 focus-visible:ring-offset-[#e6e6e6]"
             >
               <span className="block h-0.5 w-full overflow-hidden rounded-full bg-neutral-400/70">
                 {selected && (
