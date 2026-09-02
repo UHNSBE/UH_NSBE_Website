@@ -23,7 +23,7 @@ const tiers = [
   },
   {
     name: 'National Membership',
-    price: '$15',
+    price: '$20',
     cadence: '12 months',
     href: 'https://nsbe.org/collegiate/',
     external: true,

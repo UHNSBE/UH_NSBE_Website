@@ -232,7 +232,7 @@ export default function MembershipPortal() {
               <h3 className="font-bold mb-2">Steps to get verified</h3>
               <ol className="list-decimal pl-5">
                 <li>Create an account/login to NSBE.org</li>
-                <li>Pay your National Dues ($18)</li>
+                <li>Pay your National Dues ($20)</li>
                 <li>Enter your GPA on your NSBE Profile</li>
                 <li>Submit your <a href="#" className="underline">Google Form</a> Accurately</li>
               </ol>
@@ -265,7 +265,7 @@ export default function MembershipPortal() {
               <h3 className="font-bold mb-2">Steps to get verified</h3>
               <ol className="list-decimal pl-5">
                 <li>Create an account/login to NSBE.org</li>
-                <li>Pay your National Dues ($18)</li>
+                <li>Pay your National Dues ($20)</li>
                 <li>Enter your GPA on your NSBE Profile</li>
                 <li>Submit your <a href="#" className="underline">Google Form</a> Accurately</li>
               </ol>
